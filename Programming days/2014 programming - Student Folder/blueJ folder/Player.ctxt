@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=n\ cards
+comment0.target=Player(String,\ List<Card>)
+comment1.target=String\ getName()
+comment2.target=List<Card>\ getHand()
+comment3.target=Card\ getTopCard()
+comment4.params=c
+comment4.target=void\ addCardsToHand(Card[])
+comment5.params=numCards
+comment5.target=ArrayList<Card>\ getNextCards(int)
+comment6.target=int\ hashCode()
+numComments=7

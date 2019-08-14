@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=m
+comment0.target=MiningCenter(java.util.ArrayList)
+comment0.text=\r\n\ \ \ \ precondition\:\ m.size()\ >\ 0\r\n
+comment1.params=
+comment1.target=Site\ getCenter()
+numComments=2

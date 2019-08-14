@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=picture
+comment0.target=ArrayList<String>\ compressPicture(String[][])
+comment1.params=comp
+comment1.target=String[][]\ uncompressPicture(ArrayList<String>)
+numComments=2

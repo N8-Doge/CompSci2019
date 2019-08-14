@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=str
+comment0.target=Jumble(java.lang.String)
+comment1.params=scramble
+comment1.target=boolean\ looksReal(java.lang.String)
+comment2.params=scramble
+comment2.target=int\ numLettersInCorrectLocation(java.lang.String)
+comment3.params=scramble
+comment3.target=java.lang.String\ getRating(java.lang.String)
+numComments=4

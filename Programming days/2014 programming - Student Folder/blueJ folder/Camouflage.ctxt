@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=str
+comment0.target=Camouflage(String)
+comment1.params=str
+comment1.target=boolean\ linearSearch(String)
+comment2.params=str
+comment2.target=boolean\ reverseSearch(String)
+comment3.params=str
+comment3.target=boolean\ circularSearch(String)
+numComments=4

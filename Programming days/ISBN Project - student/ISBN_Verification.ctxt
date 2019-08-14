@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=isbn
+comment0.target=boolean\ isValid(java.lang.String)
+comment0.text=\r\n\ \ \ \ isbn\ will\ have\ the\ form\r\n\ \ \ \ \ \ \ \ \ \ "\#\#\#-\#-\#\#\#\#\#-\#\#\#-\#"\r\n\ \ \ \ \ or\ \ \ "\#\#\#\#-\#\#-\#\#-\#\#\#\#-\#"\r\n\ \ \ \ \ or\ \ \ "\#\#\#\#-\#\#\#-\#\#\#-\#\#-\#"\r\n\ \ \ \ \ or\ \ \ "\#\#\#\#-\#\#-\#\#\#\#-\#\#-\#"\r\n\ \ \ \ \ or\ \ ......\r\n
+numComments=1

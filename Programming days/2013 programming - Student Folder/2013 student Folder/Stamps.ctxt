@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=n\ arr
+comment0.target=Stamps(int,\ int[])
+comment1.params=
+comment1.target=int\ getMaxRange()
+numComments=2

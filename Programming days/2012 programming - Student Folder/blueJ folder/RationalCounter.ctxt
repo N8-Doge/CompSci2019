@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=y
+comment0.target=Fraction\ getFraction(int)
+comment0.text=\n@param\ \ y\ \ \ a\ int\ indicating\ which\ rational\ number\ to\ locate\n@return\ \ \ \ \ the\ desired\ Fraction\n\n
+numComments=1

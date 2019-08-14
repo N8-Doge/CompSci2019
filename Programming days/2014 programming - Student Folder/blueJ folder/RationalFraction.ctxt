@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=top\ bottom
+comment0.target=RationalFraction(int,\ int)
+comment1.params=rd
+comment1.target=RationalFraction(RepeatingDecimalString)
+comment2.target=int\ getNumerator()
+comment3.target=int\ getDenominator()
+comment4.params=obj
+comment4.target=boolean\ equals(Object)
+numComments=5

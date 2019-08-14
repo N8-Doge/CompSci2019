@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=firstName\ secondName
+comment0.target=java.util.List\ getBabyNames(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ \ precondition\r\n\ \ \ \ firstName\ and\ secondName\ will\ contain\ only\ UPPERRCASE\ letters\r\n\ \ \ \ 2\ <\=\ firstName.length()\ \ <\=\ 20\r\n\ \ \ \ 2\ <\=\ secondName.length()\ <\=\ 20\r\n\r\n\ post\ condition\r\n\ \ \ \ returns\ a\ List\ of\ potential\ new\ names\ using\ firstName\ for\ the\ begininng\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ and\ second\ name\ for\ the\ ending\ of\ the\ new\ name\r\n
+numComments=1

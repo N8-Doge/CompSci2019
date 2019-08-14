@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=int\ f1(int)
+comment0.text=\r\n\ \ \ borrowed\ from\ March\ 2017\ issue\ of\ NCTM\ \ monthly\ magizine\r\n\ \ \ \r\n\ \ \ \r\n\ \ \ \ \ return\ the\ smallest\ positive\ value\ of\ d\ such\ that\ n\ +\ d\ is\ a\ perfect\ square\r\n\ \ \ \ \ \r\n\ \ \ \ \ you\ may\ assume\ n\ +\ d\ is\ not\ too\ big\r\n
+comment1.params=low\ high
+comment1.target=int\ f2(int,\ int)
+comment1.text=\r\n\ \ \ \ Implement\ the\ following\ function\ which\ returns\ the\ number\ of\ ints\ that\ satisfies\ the\ inequality\:\r\n\ \ \ \ \r\n\ \ \ \ low\ <\ 5y\ +\ 7\ <\=\ high\r\n
+comment2.params=n
+comment2.target=int\ f3(int)
+comment3.params=a\ b\ c
+comment3.target=int\ f4(int,\ int,\ int)
+comment4.params=x\ y
+comment4.target=double\ f5(double,\ double)
+comment5.params=x\ y\ z
+comment5.target=double\ f6(double,\ double,\ double)
+comment6.params=phrase\ num
+comment6.target=java.lang.String[]\ f7(java.lang.String,\ int)
+comment6.text=\r\n\ \ \ \ precondition\ phrase.length\ >\ 0\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ F7("Sample",\ 2)\r\n\ \ \ \ \ \ \ returns\ {"SML",\ "APE"}\r\n\ \ \ \ F7("HELP\ ME\ FIGURE\ THIS\ OUT\ \:(",\ 3)\r\n\ \ \ \ \ \ \ returns\ {"HPEIRTSU",\ "E\ \ GEH\ T(",\ "LMFU\ IO\ "}\r\n\ \ \ \ F7("COMPUTER\ SCIENCE",\ 4)\r\n\ \ \ \ \ \ \ returns\ {"CU\ E",\ "OTSN",\ "MECC",\ "PRIE"}\r\n\ \ \ \ F7("TO\ ITERATE\ IS\ HUMAN,\ TO\ RECURSE\ DIVINE",\ 5)\r\n\ \ \ \ \ \ \ returns\ {"TE\ U\ EEI",\ "ORIMTC\ N",\ "\ ASAOUDE",\ "IT\ N\ RI",\ "TEH,RSV"}\r\n\ \ \ \ F7("1234567890",\ 5)\r\n\ \ \ \ \ \ \ returns\ {"16",\ "27",\ "38",\ "49",\ "50"}\r\n\ \ \ \ F7("@ABC\!",\ 7)\r\n\ \ \ \ \ \ \ returns\ {"@",\ "A",\ "B",\ "C",\ "\!",\ "",\ ""}\r\n
+comment7.params=phrase
+comment7.target=java.lang.String\ f8(java.lang.String)
+comment7.text=\r\n\ \ \ \ \ precondtion\:\ \ phrase\ and\ String\ will\ only\ contain\:\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Upper\ case\ letters\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spaces\r\n\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ phrase.length()\ >\=\ 0\r\n
+comment8.params=x\ y\ z
+comment8.target=boolean\ f9(boolean,\ boolean,\ boolean)
+comment9.params=j\ k\ m\ n
+comment9.target=boolean\ f10(boolean,\ boolean,\ boolean,\ boolean)
+numComments=10

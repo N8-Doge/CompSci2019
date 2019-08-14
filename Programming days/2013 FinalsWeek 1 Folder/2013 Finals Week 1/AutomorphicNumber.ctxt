@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=num
+comment0.target=boolean\ isAutomorphicNumber(int)
+comment1.params=numbers
+comment1.target=java.util.ArrayList\ getAutomorphicNumberFromArray(int[])
+numComments=2

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=dictionary
+comment0.target=Translator(String[])
+comment1.params=story
+comment1.target=String[]\ decodeMessage(String[])
+comment2.params=word1\ word2
+comment2.target=boolean\ sameLetters(String,\ String)
+numComments=3

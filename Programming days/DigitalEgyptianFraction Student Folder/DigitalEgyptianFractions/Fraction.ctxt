@@ -1,0 +1,30 @@
+#BlueJ class context
+comment0.params=t\ b
+comment0.target=Fraction(int,\ int)
+comment1.params=f
+comment1.target=int\ compareTo(Fraction)
+comment1.text=returns\na\ value\ less\ than\ 0\ if\ this\ <\ f\n0\ if\ f\ \=\=\ this\na\ value\ greater\ than\ 0\ if\ this\ <\ f\n\n
+comment10.target=String\ toString()
+comment10.text=returns\ a\ string\ in\ the\ form\n\n"numerator\ /\ denominator"\nthere\ is\ exactly\ one\ space\ on\ both\ sides\ of\ /\nno\ space\ infront\ of\ the\ numerator\ and\ no\ spaces\ after\ the\ denominator\n\n
+comment2.target=int\ getTop()
+comment2.text=returns\ the\ numerator\ of\ this\ fraction\n\n
+comment3.target=int\ getBottom()
+comment3.text=returns\ the\ denominator\ of\ this\ fraction\n\n
+comment4.target=double\ getDecimal()
+comment4.text=returns\ the\ decimal\ value\ this\ fraction\ (i.e.,\ numerator\ /\ denominator\n\n
+comment5.params=fs
+comment5.target=Fraction\ addAllFractionsInList(List<Fraction>)
+comment5.text=A\ static\ method\nreturns\ the\ simplified\ fraction\ computed\ by\ summing\ all\ fractions\nin\ it\ List\ parameter\ fs\n\n
+comment6.params=f
+comment6.target=void\ subtract(Fraction)
+comment6.text=modifies\ this\ by\ subtracting\ the\ parameter\ f\ from\ it\n\n
+comment7.params=f
+comment7.target=void\ add(Fraction)
+comment7.text=modifies\ this\ by\ adding\ the\ parameter\ f\ to\ it\n\n
+comment8.params=f
+comment8.target=void\ multiply(Fraction)
+comment8.text=modifies\ this\ by\ multipling\ it\ by\ the\ parameter\ f\n\n
+comment9.params=obj
+comment9.target=boolean\ equals(Object)
+comment9.text=returns\ true\ if\ the\ the\ two\ objects\ are\ equal.\nYou\ may\ assume\ both\ Fractions\ are\ in\ simplest\ form\n\n
+numComments=11

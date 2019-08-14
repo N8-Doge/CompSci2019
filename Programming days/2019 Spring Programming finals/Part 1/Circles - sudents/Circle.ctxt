@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=x\ y\ z
+comment0.target=Circle(Point,\ Point,\ Point)
+comment0.text=\r\n\ \ \ \ \ \ \ If\ no\ circle\ exist\ (all\ three\ points\ are\ collinear),\r\n\ \ \ \ \ \ \ set\ the\ center\ to\ null\ and\ the\ rasius\ to\ -1\r\n
+comment1.params=
+comment1.target=Point\ getCenter()
+comment2.params=
+comment2.target=double\ getRadius()
+comment3.params=
+comment3.target=double\ getCircleArea()
+comment4.params=
+comment4.target=double\ getCirclePerimeter()
+comment5.params=
+comment5.target=double\ getTriangleArea()
+comment6.params=
+comment6.target=double\ getTrianglePerimeter()
+comment7.params=
+comment7.target=PolarEquation\ getPolarEquation()
+comment7.text=\r\n\ \ \ \ remember,\ if\ the\ circle\ is\ centered\ at\ the\ origin,\ set\ phi\ to\ zero\r\n
+numComments=8

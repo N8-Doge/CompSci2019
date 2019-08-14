@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=str
+comment0.target=java.lang.String\ goFigureDecimal(java.lang.String)
+comment1.params=str
+comment1.target=int\ toDecimal(java.lang.String)
+comment2.params=str
+comment2.target=java.lang.String\ goFigureBinary(java.lang.String)
+comment3.params=str
+comment3.target=int\ toBinary(java.lang.String)
+comment4.params=str
+comment4.target=java.lang.String\ goFigureRomanNumeral(java.lang.String)
+comment5.params=str
+comment5.target=int\ toRomanNumeral(java.lang.String)
+comment6.params=str
+comment6.target=boolean\ only1RomanNumeral(java.lang.String)
+comment7.params=str
+comment7.target=boolean\ only1Binary(java.lang.String)
+comment8.params=str
+comment8.target=boolean\ only1Decimal(java.lang.String)
+numComments=9

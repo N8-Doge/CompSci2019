@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=int\ function_one(int)
+comment1.params=x
+comment1.target=double\ function_two(double)
+comment2.params=x\ y\ z
+comment2.target=double\ function_three(double,\ double,\ double)
+comment3.params=a\ b
+comment3.target=double\ function_four(double,\ double)
+comment4.params=a\ b
+comment4.target=double\ function_five(double,\ double)
+comment5.params=x\ y\ z
+comment5.target=double\ function_six(double,\ double,\ double)
+comment6.params=x\ y\ z
+comment6.target=double\ function_seven(double,\ double,\ double)
+comment7.params=a\ b
+comment7.target=double\ function_eight(double,\ double)
+comment8.params=a\ b\ x\ y\ z
+comment8.target=double\ function_nine(double,\ double,\ double,\ double,\ double)
+numComments=9

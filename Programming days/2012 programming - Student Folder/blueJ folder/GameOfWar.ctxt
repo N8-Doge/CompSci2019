@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=p
+comment0.target=GameOfWar(Player[])
+comment0.text=\nConstructor\ need\ for\ GameOfWar\ class\n\n
+comment1.target=String\ findGameWinner()
+comment1.text=\n@param\ \ y\ \ \ \n@return\n\n
+numComments=2

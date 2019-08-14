@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=start\ length
+comment0.target=StringPart(int,\ int)
+comment0.text=@param\ start\ the\ starting\ position\ of\ the\ substring\nin\ a\ master\ string\n@param\ length\ the\ length\ of\ the\ substring\ in\ a\ master\ string\n\n
+comment1.target=int\ getStart()
+comment1.text=@return\ the\ starting\ position\ of\ the\ substring\ in\na\ master\ string\n\n
+comment2.target=int\ getLength()
+comment2.text=@return\ the\ length\ of\ the\ substring\ in\ a\ master\ string\n\n
+numComments=3

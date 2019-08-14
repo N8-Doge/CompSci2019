@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=num
+comment0.target=boolean\ isDevilNumber(int)
+comment0.text=\r\n\ \ \ \ precondition\ num\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ returns\ true\ if\ num\ is\ a\ Devil\ Number\r\n\ \ \ \ \ \ \ returns\ false\ otherwise\r\n
+comment1.params=num
+comment1.target=boolean\ isTrueDevilNumber(int)
+comment1.text=\r\n\ \ \ \ precondition\ num\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ returns\ true\ if\ num\ is\ a\ True\ Devil\ Number\r\n\ \ \ \ \ \ \ returns\ false\ otherwise\r\n
+comment2.params=num
+comment2.target=int\ getLargestDevilNumber(int)
+comment2.text=\r\n\ \ \ \ precondition\ num\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ returns\ the\ largest\ Devil\ Number\ <\=\ num\r\n\ \ \ \ \ \ \ returns\ -1\ if\ no\ Devil\ Number\ exist\r\n
+comment3.params=num
+comment3.target=int\ getLargestTrueDevilNumber(int)
+comment3.text=\r\n\ \ \ \ precondition\ num\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ returns\ the\ largest\ positive\ True\ Devil\ Number\ <\=\ num\r\n\ \ \ \ \ \ \ returns\ -1\ if\ no\ Devil\ Number\ exist\r\n
+numComments=4

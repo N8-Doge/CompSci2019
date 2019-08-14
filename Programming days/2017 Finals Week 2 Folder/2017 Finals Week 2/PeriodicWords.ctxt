@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PeriodicWords()
+comment0.text=\r\n\ \ \ constructor\ used\ for\ the\ isPeriodicSpellingPossible\ method\r\n
+comment1.params=name
+comment1.target=boolean\ isPeriodicSpellingPossible(java.lang.String)
+comment1.text=\r\n\ \ \ \ Precondition\r\n\ \ \ \ \ \ \ \ \ name\ will\ be\ given\ in\ ALL\ CAPITAL\ letters\r\n\ \ \ \ \ \ \ \ \ name.length()\ >\ 0\r\n\ \ \ \ \r\n\ \ \ \ return\ true\ if\ name\ can\ be\ spelled\ using\ the\ symbols\ from\ the\ Periodic\ Table\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.g.,\ since\ LIKES\ can\ be\ spelled\ using\ Li\ -\ K\ -\ Es\ return\ true\ \r\n\ \ \ \ \ \ \ \ \ \ \ false\ otherwise\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ since\ COMPUTER\ can\ not\ be\ spelled\ (no\ OMP\ combination\ can\ be\ formed)\ return\ false\r\n
+numComments=2

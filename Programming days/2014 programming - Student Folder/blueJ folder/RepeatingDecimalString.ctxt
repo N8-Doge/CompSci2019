@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=j\ k
+comment0.target=RepeatingDecimalString(String,\ String)
+comment1.target=String\ getNonRepeatingDigits()
+comment2.target=String\ getRepeatingDigits()
+numComments=3

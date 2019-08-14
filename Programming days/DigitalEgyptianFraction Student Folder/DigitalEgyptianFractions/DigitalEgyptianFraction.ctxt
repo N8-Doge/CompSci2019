@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=DigitalEgyptianFraction(int)
+comment1.params=efs
+comment1.target=Fraction\ addAllDigitalEgyptianFractionsInList(List<DigitalEgyptianFraction>)
+comment2.params=f
+comment2.target=List<DigitalEgyptianFraction>\ getListOfDigitalEgyptianFractions(Fraction)
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=num
+comment0.target=int\ sumDigits(int)
+comment0.text=\r\n\ \ \ returns\ the\ sum\ of\ the\ individual\ digits\ of\ num\r\n\ \ \ if\ num\ <\ 0,\ returns\ the\ sum\ of\ the\ individual\ digits\ of\ -num\r\n\ \ \ if\ num\ \=\=\ 0,\ return\ 0;\r\n
+comment1.params=number\ deg
+comment1.target=boolean\ isPartitionable(int,\ int)
+comment1.text=\r\n\ \ \ \ \ All\ ints\ can\ be\ partitioned\ in\ such\ away\ that\ the\ sum\ of\ each\ partition\ is\ equal\ to\ the\ sum\ of\ all\ the\ other\ partitions\r\n\ \ \ \ \ for\ example,\ the\ number\ 614377\ can\ be\ partition\ in\ 4\ groups\ (61\ -\ 43\ -\ 7\ -\ 7\ ),\ each\ with\ the\ sum\ of\ the\ digits\ equal\ to\ 7.\r\n\ \ \ \ \ In\ this\ case,\ we\ say\ 614377\ is\ Partionable\ with\ degree\ 7.\r\n\r\n\ \ \ \ \ Note\:\ \ all\ numbers\ are\ partionable\ with\ a\ degree\ equal\ to\ the\ sum\ of\ the\ digits\ of\ the\ number.\r\n\r\n\ \ \ \ \ if\ n\ <\ 0,\ use\ -n\r\n\ \ \ \ \ by\ definition,\ 0\ is\ Partionable\ with\ degree\ 0.\r\n\ \ \ \ \ It\ should\ be\ noted\ that\ all\ int\ are\ partionable\ with\ degree\ equal\ to\ the\ sum\ of\ its\ digits.\r\n
+comment2.params=num
+comment2.target=int\ minPartitionDegree(int)
+comment2.text=\r\n\ \ \ \ Given\ an\ int\ num,\ return\ the\ min\ value\ d\ such\ that\ the\ degree\ of\ the\ partion\ of\ num\ is\ d.\r\n\ \ \ \ recall\ that\ all\ ints\ are\ partionable\ by\ the\ sum\ of\ its\ digits\r\n\ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ note\:\ \ 0\ <\=\ num\ <\ Integer.MAX_VALUE\ \=\=\ 2147483647\r\n\ \ \ \ \ \ \ \ \ \ \ This\ implies\ that\ largest\ possible\ value\ which\ can\ be\ returned\ is\ ???\r\n
+numComments=3

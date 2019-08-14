@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=m\ n
+comment0.target=int\ problem1(int,\ int)
+comment1.params=x
+comment1.target=double\ problem2(double)
+comment2.params=x\ y
+comment2.target=double\ problem3(double,\ double)
+comment3.params=x\ y\ z
+comment3.target=double\ problem4(double,\ double,\ double)
+comment4.params=a\ b\ c
+comment4.target=double\ problem5(double,\ double,\ double)
+comment5.params=x\ y\ z
+comment5.target=double\ problem6(double,\ double,\ double)
+comment6.params=x\ y\ z
+comment6.target=double\ problem7(double,\ double,\ double)
+comment7.params=a\ b
+comment7.target=double\ problem8(double,\ double)
+comment8.params=a\ b\ x\ y\ z
+comment8.target=double\ problem9(double,\ double,\ double,\ double,\ double)
+comment9.params=a\ b\ x\ y\ z
+comment9.target=double\ problem10(double,\ double,\ double,\ double,\ double)
+numComments=10

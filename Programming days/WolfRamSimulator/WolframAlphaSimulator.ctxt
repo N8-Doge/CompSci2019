@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=booleanExpression
+comment0.target=WolframAlphaSimulator(String)
+comment0.text=precondition\ \ s\ contains\:\nsingle\ letter\ variable\ names\nfor\ AND\n+\ for\ OR\n\!\ for\ NOT\nnote\ \ \ \ \ \ missing\ operator\ implies\ AND\n(\ \ \ \ )\nspaces\ are\ NOT\ guanarteed\n\n
+comment1.params=values
+comment1.target=boolean\ evaluate(boolean[])
+comment1.text=Evaluates\ the\ booleanExpression\ for\ the\ given\ input\n\nprecondition\:\ \ \ values.length\ \=\=\ number\ of\ inputs\ in\ the\ booleanExpression\n\npostcondition\ \ \ evaluates\ the\ expression\ using\ the\ booleans\ values\ in\ the\ array\nassume\ values\ are\ in\ ascending\ alpha\ order\n\nsee\ the\ student\ tester\ for\ sample\ input/output\n\n
+comment2.target=String\ getDisjunctiveNormalForm()
+comment2.text=converts\ the\ boolean\ expression\ into\ normal\ disjunctive\ form\n\npostcondition\ \ each\ term\ should\ appear\ in\ truth\ table\ order\ne.g.,\ TTT,\ TTF,\ TFT,\ TFF,\ FTT,\ FTF,\ FFT,\ FFF\n\n\n
+numComments=3

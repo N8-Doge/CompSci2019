@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=s1\ s2
+comment0.target=int\ kbDistance(java.lang.String,\ java.lang.String)
+comment1.params=word
+comment1.target=double\ averageDistance(java.lang.String)
+comment2.params=word
+comment2.target=int\ numDirectionChanges(java.lang.String)
+comment3.params=word
+comment3.target=java.lang.String\ wordDifficulty(java.lang.String)
+numComments=4

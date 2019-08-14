@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=top\ bottom
+comment0.target=Fraction(int,\ int)
+comment0.text=\nConstructor\ for\ objects\ of\ class\ Fraction\n\n
+comment1.target=int\ getNumerator()
+comment1.text=@return\ the\ numerator\ for\ this\ fraction\n\n
+comment2.target=int\ getDenominator()
+comment2.text=@return\ the\ numerator\ for\ this\ fraction\n\n
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=int\ convertToDecimal(String)
+comment0.text=Convert\ the\ 2s\ complement\ representation\ to\ its\ integer\ equivalent\n\nprecondition\ \ s\ is\ the\ 2s\ complement\ number\ that\ is\ to\ be\ convert\ to\ an\ int\nThe\ number\ of\ bits\ \=\ s.length()\n\nsee\ the\ student\ tester\ for\ sample\ input/output\n\n
+comment1.params=val\ bits
+comment1.target=String\ convertDecimalTo2sComplement(int,\ int)
+comment1.text=Convert\ the\ int\ parameter\ val\ to\ its\ 2s\ complement\ representatino\n\nprecondition\:\ \ -2^(bits-1)\ <+\ val\ <+\ (2^[bits-1])\ -\ 1\ni.e.,\ the\ valu\ fits\ in\ the\ range\n\npostcondition\ \ \ The\ return\ value\ has\ length()\ \=\=\ bits\n\nsee\ the\ student\ tester\ for\ sample\ input/output\n\n
+comment2.params=s
+comment2.target=String\ invert(String)
+comment2.text=inverts\ the\ String\ parameter\ s\ to\ it\ negative\ value\nprecondition\:\ \ s\ is\ a\ valid\ 2s\ complement\ number\ with\ s.length()\ bits\n\npostcondition\ \ return\ a\ string\ with\ length()\ \=\=\ s.length()\nthe\ decimals\ value\ of\ s\ \=\=\ -\ decimal\ value\ of\ return\ String\n\ne.g.,\ \ If\ s\ \=\ 0111,\ the\ String\ 1001\ is\ returned\nIf\ s\ \=\ 001,\ the\ String\ 111\ is\ returned\n\n
+numComments=3

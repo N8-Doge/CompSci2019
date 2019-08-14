@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=letters
+comment0.target=WordCounter(java.lang.String[])
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TearCalculator\r\n
+comment1.params=target
+comment1.target=int\ countEmAll(java.lang.String)
+comment1.text=\r\n\ The\ starting\ method\r\n\ \r\n\ @param\ \ target,\ a\ String\ \ -\ the\ 'word'\ thouest\ is\ looking\ for-est\r\n\ @return\ \ \ \ \ the\ number\ of\ times\ target\ can\ be\ found\ in\ myLetters\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ without\ 'jumping\ on\ thy\ self'\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ see\ the\ associated\ word\ doc.\r\n
+comment2.params=total\ row\ col\ target
+comment2.target=int\ countWord(int,\ int,\ int,\ java.lang.String)
+comment2.text=\r\n\ The\ recursive\ helper\ method\ -\ looking\ for\ the\ next\ letter\ in\ target\r\n\ \r\n\ @param\ \ total\:\ \ \ current\ number\ of\ time\ target\ has\ been\ found\r\n\ \ \ \ \ \ \ \ \ row\:\ \ \ \ \ current\ row\ the\ method\ is\ searching\r\n\ \ \ \ \ \ \ \ \ col\:\ \ \ \ \ current\ col\ the\ method\ is\ searching\r\n\ \ \ \ \ \ \ \ \ target\:\ \ the\ remaining\ string\ that\ needs\ to\ found\r\n\ \ \ \ \ \ \ \ \ \r\n\ @return\ \ \ Either\ the\ total\ number\ of\ ways\ target\ can\ be\ built\ from\r\n\ \ \ \ \ \ \ \ \ \ \ myLetters[row][col]\r\n
+numComments=3

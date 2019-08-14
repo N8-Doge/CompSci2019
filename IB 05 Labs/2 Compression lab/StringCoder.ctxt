@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=master
+comment0.target=StringCoder(String)
+comment0.text=@param\ master\ the\ master\ string\ for\ the\ StringCoder\nPrecondition\:\ the\ master\ string\ contains\ all\ letters\ of\nthe\ alphabet\n\n
+comment1.params=parts
+comment1.target=String\ decodeString(ArrayList<StringPart>)
+comment1.text=@param\ parts\ an\ ArrayList\ of\ string\ parts\ that\ are\ valid\nin\ the\ master\ string\nPrecondition\:\ parts.size()\ >\ 0\n@return\ the\ string\ obtained\ by\ concatenating\ the\ parts\ of\nthe\ master\ string\n\n
+comment2.params=str
+comment2.target=StringPart\ findPart(String)
+comment2.text=@param\ str\ the\ string\ to\ encode\ using\ the\ master\ string\nPrecondition\:\ all\ of\ the\ characters\ in\ str\ appear\ in\nthe\ master\ string;\nstr.length()\ >\ 0\n@return\ a\ string\ part\ in\ the\ master\ string\ that\ matches\nthe\ beginning\ of\ str.\nThe\ returned\ string\ part\ has\ length\ at\ least\ 1.\n\n
+comment3.params=word
+comment3.target=ArrayList<StringPart>\ encodeString(String)
+comment3.text=@param\ word\ the\ string\ to\ be\ encoded\nPrecondition\:\ all\ of\ the\ characters\ in\ word\ appear\ in\nthe\ master\ string;\nword.length()\ >\ 0\n@return\ an\ ArrayList\ of\ string\ parts\ of\ the\ master\ string\nthat\ can\ be\ combined\ to\ create\ word\n\n
+numComments=4
