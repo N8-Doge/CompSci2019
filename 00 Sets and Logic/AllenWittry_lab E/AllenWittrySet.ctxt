@@ -15,7 +15,7 @@ comment14.params=otherObj
 comment14.target=int\ compareTo(java.lang.Object)
 comment15.params=otherObj
 comment15.target=boolean\ equals(java.lang.Object)
-comment15.text=\r\n\tpublic\ AllenWittrySet<E>\ sigmaN(int\ n)\ {\r\n\t\tObject[]\ objs\ \=\ toArray();\r\n\t\t\r\n\t}\r\n
+comment15.text=\r\n\ \ \ \ public\ AllenWittrySet<E>\ sigmaN(int\ n)\ {\r\n\ \ \ \ Object[]\ objs\ \=\ toArray();\r\n\r\n\ \ \ \ }\r\n
 comment16.params=
 comment16.target=java.lang.String\ toString()
 comment2.params=s
