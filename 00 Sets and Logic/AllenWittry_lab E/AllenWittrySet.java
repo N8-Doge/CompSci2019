@@ -27,26 +27,36 @@ public class AllenWittrySet <E> implements Comparable <E> {
     //  that is (mySet U s.mySet)
     public AllenWittrySet<E> setUnion(AllenWittrySet <E> s) {
         AllenWittrySet <E> temp = new AllenWittrySet<E>("hash"/*or "tree"*/);
+        
         return temp;
     }
 
     //  return an AllenWittrySet that is the Intersection of mySet and s 
     //  that is(mySet (unsidedown U) s)
     public AllenWittrySet<E> setIntersection(AllenWittrySet <E>  s) {
-        AllenWittrySet <E> temp = new AllenWittrySet <E>("hash"/*or "tree"*/);
-        return temp;
+        return setDifference(setDifference(s));
     }
 
     //  return an AllenWittrySet that is the items in mySet and NOT in s 
     //  that is(mySet - s)
     public AllenWittrySet<E> setDifference(AllenWittrySet <E> s) {
         AllenWittrySet<E> temp = new AllenWittrySet<E>("hash"/*or "tree"*/);
+        Iterator<E> it = mySet.iterator();
+        while(it.hasNext()){
+            E obj = it.next();
+            if(!s.contains(obj))
+                temp.add(obj);
+        }
         return temp;
     }
 
     //  returns true if mySet is a subset of s
     public boolean isSubsetOf(AllenWittrySet <E> s) {
-        return false;
+        Iterator<E> t = mySet.iterator();
+        while(t.hasNext())
+            if(!s.contains(t.next()))
+                return false;
+        return true;
     }
 
     /**  returns true if mySet is a proper subset of s
@@ -54,7 +64,7 @@ public class AllenWittrySet <E> implements Comparable <E> {
      *           set A is a subset B and set A does not equal B
      */
     public boolean isProperSubsetOf(AllenWittrySet <E> s) {
-        return false;
+        return isSubsetOf(s)&&!equals(s);
     }
 
     // this works - do not mess with
@@ -64,7 +74,7 @@ public class AllenWittrySet <E> implements Comparable <E> {
 
     // returns the number of elements in mySet
     public int size() {
-        return -9699;
+        return mySet.size();
     }
 
     // returns true if mySet is empty
@@ -86,7 +96,14 @@ public class AllenWittrySet <E> implements Comparable <E> {
     //  That is, mySet.contains(Object[k]), 0 <= k < Object.length
     //  && mySet.size() == Object.length
     public Object[] toArray() {
-        return new Object[5];
+        Object[] r = new Object[mySet.size()];
+        Iterator<E> it = mySet.iterator();
+        int a=0;
+        while(it.hasNext()){
+            r[a]=it.next();
+            ++a;
+        }
+        return r;
     }
 
     //  add o to mySet
@@ -109,9 +126,7 @@ public class AllenWittrySet <E> implements Comparable <E> {
     // return 0 only if both sets contain the same elements
     //  otherwise, since sets are not ordered, you may return any non zero value
     public int compareTo(E otherObj) {
-        //   remember to cast otherObj to an AllenWittrySet
-
-        return -1; // we don't care if 1 or -1, just that it means !=
+        return toString().compareTo(((AllenWittrySet)otherObj).toString());
     }
 
     /*
@@ -128,8 +143,7 @@ public class AllenWittrySet <E> implements Comparable <E> {
         if (otherObj == null) return false;
         if (getClass() != otherObj.getClass()) return false;
         AllenWittrySet<E> other = (AllenWittrySet) otherObj;
-        //  add code below here
-        return true;
+        return compareTo((E)otherObj)==0;
     }
 
     // returns a string of the form
