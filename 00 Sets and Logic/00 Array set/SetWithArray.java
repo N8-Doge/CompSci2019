@@ -63,15 +63,15 @@ public class SetWithArray{
     }
 
     public boolean isEqualTo(int[] y){
-        boolean b=true;
+        int a=0;
         for(int i:x){
             for(int j:y)
                 if (i==j)
-                    b=false;
-            if(b)
+                    a++;
+            if(a!=1)
                 return false;
             else
-                b=true;
+                a=0;
         }
         return true;
     }
