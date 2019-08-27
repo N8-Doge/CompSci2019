@@ -74,6 +74,8 @@ public class MorseCode
      */
     private static void addSymbol(char letter, String code)
     {
+        codeMap.put(letter,code);
+        treeInsert(letter,code);
     }
 
     /**
@@ -85,6 +87,19 @@ public class MorseCode
      */
     private static void treeInsert(char letter, String code)
     {
+        TreeNode n = decodeTree;
+        for(char c:code.toCharArray()){
+            if(n==null)
+                if(c=='.')
+                    n.setLeft(new TreeNode(new Character(' ')));
+                else
+                    n.setRight(new TreeNode(new Character(' ')));
+            if(c=='.')
+                n=n.getLeft();
+            else
+                n=n.getRight();
+        }
+        n.setValue(letter);
     }
 
     /**

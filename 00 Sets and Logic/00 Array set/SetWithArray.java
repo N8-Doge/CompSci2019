@@ -21,30 +21,14 @@ public class SetWithArray{
     }
 
     public int[] difference(int[] y){
-        int a=0;
-        boolean b=true;
-        for(int i:x){
-            for(int j:y)
-                if(i==j)
-                    b=false;
-            if(b)
-                ++a;
-            else
-                b=true;
-        }
-        int[] r = new int[a];
-        a=0;
-        for(int i:x){
-            for(int j:y)
-                if(i==j)
-                    b=false;
-            if(b){
-                r[a]=i;
-                ++a;
-            }
-            else
-                b=true;
-        }
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        for(int i:x)
+            a.add(i);
+        for(Integer i:y)
+            a.remove(i);
+        int[] r = new int[a.size()];
+        for(int i=0;i<a.size();i++)
+            r[i]=a.get(i);
         return r;
     }
 
@@ -73,7 +57,7 @@ public class SetWithArray{
             else
                 a=0;
         }
-        return true;
+        return x.length==y.length;
     }
 
     public int[] symmetricDifference(int[] y){
