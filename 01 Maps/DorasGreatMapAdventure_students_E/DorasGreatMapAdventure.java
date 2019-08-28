@@ -125,8 +125,15 @@ public class DorasGreatMapAdventure<K,V>{
      */
     public Object[] toArray()
     {
-        Object[] ans = new Object[(int)(111*Math.random())];
-        return ans;
+        Object[] r = new Object[numItems()];
+        int i=0;
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                for(V v:iAmTheMap.get(k)){
+                    r[i]=v;
+                    ++i;
+        }
+        return r;
     }
 
     /**
@@ -137,8 +144,9 @@ public class DorasGreatMapAdventure<K,V>{
      *          - do not throw an exception, that is exit the method gracefully
      */
     public void remove(K key, V tico) {
-        iAmTheMap.remove(key);
-        if(iAmTheMap.size()==0)
+        if(iAmTheMap.get(key)!=null)
+            iAmTheMap.get(key).remove(tico);
+        if(isEmpty())
             iAmTheMap.clear();
     }
 
@@ -148,8 +156,9 @@ public class DorasGreatMapAdventure<K,V>{
      */
     public void removeFromAll(V isa){
         for(K k:keySet())
-            iAmTheMap.remove(k,isa);
-        if(iAmTheMap.size()==0)
+            if(iAmTheMap.get(k)!=null)
+                iAmTheMap.get(k).remove(isa);
+        if(isEmpty())
             iAmTheMap.clear();
     }
 
@@ -160,7 +169,16 @@ public class DorasGreatMapAdventure<K,V>{
      *           that is,  iAmTheMap.get(key).equals(otherDorasGreatMapAdventure.iAmTheMap.get(key))
      */
     public boolean equals (Object otherDorasGreatMapAdventure) {
-        return 0 == (int)(2*Math.random());  // so compiles
+        DorasGreatMapAdventure d = (DorasGreatMapAdventure)otherDorasGreatMapAdventure;
+        if(!keySet().containsAll(d.keySet()))
+            return false;
+        if(!d.keySet().containsAll(keySet()))
+            return false;
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                if(!iAmTheMap.get(k).equals(d.getMap().get(k)))
+                    return false;
+        return true;
     }
 
     /**
@@ -169,7 +187,15 @@ public class DorasGreatMapAdventure<K,V>{
      *      a single = between key and set, with a comma and a single space between each key set pair
      */
     public String toString() {
-        return "{ NOT the right String }"; 
+        String s = "{";
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null){
+                s+=k.toString()+"="+getMap().get(k).toString()+", ";
+        }
+        if(s.length()>1)
+            s=s.substring(0,s.length()-2);
+        s+="}";
+        return s;
     }
 
     // stuff added after attempt 1
@@ -182,6 +208,13 @@ public class DorasGreatMapAdventure<K,V>{
      */
     public V maxItem()
     {
-        return (V)new Object();
+        V v = (V)"";
+        Object[] os = toArray();
+        for(Object o:os){
+            V vo = (V) o;
+            if(vo.toString().compareTo(v.toString())>0)
+                v=(V)o;
+        }
+        return v;
     }
 }
