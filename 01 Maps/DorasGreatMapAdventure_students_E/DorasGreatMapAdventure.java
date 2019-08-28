@@ -3,17 +3,14 @@
  *   If client creates a "tree" DorasGreatMapAdventure, key will implement Comparable interface as required by the TreeMap() class,
  *                                                                          the associated set contains Objects
  */
-
 import java.util.*;
-
 public class DorasGreatMapAdventure<K,V>{
-
     /**
      *   Thou shall add NO methods that that modify any properties of iAmTheMap.
      *   Modify any properties of iAmTheMap may cause you other methods to fail toString() testing
      */
     private Map<K, Set<V>> iAmTheMap;
-
+    private int size;
     /**
      *   Thou shall not modify the constructor.
      *   Modify the constructor of iAmTheMap may cause you other methods to fail toString() testing
@@ -32,7 +29,7 @@ public class DorasGreatMapAdventure<K,V>{
      *      I know, I gave it to you.
      */
     public Set<K> keySet() {
-        return iAmTheMap.keySet();   
+        return iAmTheMap.keySet();
     }
 
     /**
@@ -52,7 +49,9 @@ public class DorasGreatMapAdventure<K,V>{
      *
      */
     public void add(K key, V tico) {
-        
+        if(iAmTheMap.get(key)==null)
+            iAmTheMap.put(key, new TreeSet<V>());
+        iAmTheMap.get(key).add(tico);
     }
 
     /**
@@ -62,8 +61,7 @@ public class DorasGreatMapAdventure<K,V>{
      *               redundant items are counted multiple times.
      */
     public int size() {
-        //  hint:  if you do not implement add first, then size will always return 0
-        return -1;    // so it compiles
+        return numItems()+keySet().size();
     }
 
     /**
@@ -72,7 +70,11 @@ public class DorasGreatMapAdventure<K,V>{
      */
     public int numItems()
     {
-        return -1;    // so it compiles 
+        int i=0;
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                i+=iAmTheMap.get(k).size();
+        return i;
     }
 
     /**
@@ -81,7 +83,12 @@ public class DorasGreatMapAdventure<K,V>{
      *               not counting duplicates
      */
     public int numDistinctItems() {
-        return -1;    // so it compiles
+        TreeSet<V> t = new TreeSet<V>();
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                for(V v:iAmTheMap.get(k))
+                    t.add(v);
+        return t.size();
     }
 
     /**
@@ -90,7 +97,11 @@ public class DorasGreatMapAdventure<K,V>{
      *      otherwise returns false
      */
     public boolean isEmpty() {
-        return 0 == (int)(2*Math.random());  // so compiles
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                if(iAmTheMap.get(k).size()!=0)
+                    return false;
+        return true;
     }
 
     /**
@@ -100,7 +111,11 @@ public class DorasGreatMapAdventure<K,V>{
      */
     public boolean contains(Object diego)
     {
-        return 0 == (int)(2*Math.random());  // so compiles
+        for(K k:keySet())
+            if(iAmTheMap.get(k)!=null)
+                if(iAmTheMap.get(k).contains(diego))
+                    return true;
+        return false;
     }
 
     /**
@@ -122,14 +137,20 @@ public class DorasGreatMapAdventure<K,V>{
      *          - do not throw an exception, that is exit the method gracefully
      */
     public void remove(K key, V tico) {
+        iAmTheMap.remove(key);
+        if(iAmTheMap.size()==0)
+            iAmTheMap.clear();
     }
 
     /**
      *      remove isa from all sets
      *          if the Set becomes Empty, remove the key from iAmTheMap
      */
-    public void removeFromAll(V isa)
-    {
+    public void removeFromAll(V isa){
+        for(K k:keySet())
+            iAmTheMap.remove(k,isa);
+        if(iAmTheMap.size()==0)
+            iAmTheMap.clear();
     }
 
     /**
