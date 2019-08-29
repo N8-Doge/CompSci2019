@@ -1,21 +1,20 @@
-/**
- *   If client creates a "hash" DorasGreatMapAdventure, key will have a reasonable hashCode, the associated set contains Objects
- *   If client creates a "tree" DorasGreatMapAdventure, key will implement Comparable interface as required by the TreeMap() class,
- *                                                                          the associated set contains Objects
- */
 import java.util.*;
+/**
+ * DorasGreatMapAdventure is a manual implementation of a Map
+ * 
+ * @author  Nathan Chen
+ * @version 8-28-19
+ */
 public class DorasGreatMapAdventure<K,V>{
-    /**
-     *   Thou shall add NO methods that that modify any properties of iAmTheMap.
-     *   Modify any properties of iAmTheMap may cause you other methods to fail toString() testing
-     */
+    //Instance variables
     private Map<K, Set<V>> iAmTheMap;
-    private int size;
+
     /**
-     *   Thou shall not modify the constructor.
-     *   Modify the constructor of iAmTheMap may cause you other methods to fail toString() testing
+     * Constructor to create class
+     * 
+     * @param   type    Either hash or tree
      */
-    public DorasGreatMapAdventure(String type) {
+    public DorasGreatMapAdventure(String type){
         if ("hash".equals(type))
             iAmTheMap = new HashMap<K, Set<V>>();
         else if ("tree".equals(type))
@@ -25,51 +24,51 @@ public class DorasGreatMapAdventure<K,V>{
     }
 
     /**
-     *      returns the set of keys from iAmTheMap
-     *      I know, I gave it to you.
+     * Returns internal map's keyset
+     * 
+     * @return  Keyset of the map
      */
-    public Set<K> keySet() {
+    public Set<K> keySet(){
         return iAmTheMap.keySet();
     }
 
     /**
-     *      returns iAmTheMap - Just in case there is a DorasGreatMapAdventureTheSequel
-     *      I know, I gave it to you.
+     * Returns the internal map
+     * 
+     * @return  Gives internal map
      */
-    public Map<K, Set<V>> getMap() {
+    public Map<K, Set<V>> getMap(){
         return iAmTheMap;
     }
 
     /**
-     *      add tico to the set associated with key.
-     *      If key is not in iAmTheMap, add a new TreeSet containg tico as its sole member
-     *
-     *    yes - add a TREE set to insure matching traversal order 
-     *
-     *
+     * Adds a value to the set linked to key. 
+     * If there is no set it creates a treeset to add to
+     * 
+     * @param key Key to add value to
+     * @param tico Value to add
      */
-    public void add(K key, V tico) {
+    public void add(K key, V tico){
         if(iAmTheMap.get(key)==null)
             iAmTheMap.put(key, new TreeSet<V>());
         iAmTheMap.get(key).add(tico);
     }
 
     /**
-     *      returns the total number of items in the iAmTheMap
-     *      That is, the sum of the size of each set assocaiated with all keys
-     *               plus the number of keys
-     *               redundant items are counted multiple times.
+     * The number of elements and keys including dupes
+     * 
+     * @return Integer sum of elements and keys
      */
-    public int size() {
+    public int size(){
         return numItems()+keySet().size();
     }
 
     /**
-     *      returns the total number of non key items in the iAmTheMap
-     *      That is, the sum of the size of each set assocaiated with all keys
+     * The number of elements in the map including dupes
+     * 
+     * @return Integer of sum of elements
      */
-    public int numItems()
-    {
+    public int numItems(){
         int i=0;
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null)
@@ -78,11 +77,11 @@ public class DorasGreatMapAdventure<K,V>{
     }
 
     /**
-     *      returns the total number of distinct non key items in the iAmTheMap
-     *      That is, the sum of the size of each set assocaiated with all keys,
-     *               not counting duplicates
+     * The number of elements in the map excluding dupes
+     * 
+     * @return Integer sum of unique elements
      */
-    public int numDistinctItems() {
+    public int numDistinctItems(){
         TreeSet<V> t = new TreeSet<V>();
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null)
@@ -92,11 +91,11 @@ public class DorasGreatMapAdventure<K,V>{
     }
 
     /**
-     *      returns true iff
-     *           iAmTheMap is Empty or all sets in the Map are Empty
-     *      otherwise returns false
+     * Returns true if the map is empty
+     * 
+     * @return Boolean true if map is empty
      */
-    public boolean isEmpty() {
+    public boolean isEmpty(){
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null)
                 if(iAmTheMap.get(k).size()!=0)
@@ -105,12 +104,12 @@ public class DorasGreatMapAdventure<K,V>{
     }
 
     /**
-     *      returns true if a one or more associated set contains diego
-     *      otherwise (no set contains diego) return false
-     *      
+     * Returns true if the map contains an object
+     * 
+     * @param   diego   Object to find
+     * @return  Boolean true if diego is in map
      */
-    public boolean contains(Object diego)
-    {
+    public boolean contains(Object diego){
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null)
                 if(iAmTheMap.get(k).contains(diego))
@@ -119,12 +118,11 @@ public class DorasGreatMapAdventure<K,V>{
     }
 
     /**
-     *      returns an array containing all elements from the associated sets
-     *      items may appear in the array more than once
-     *      keys are not to be added to the array
+     * Returns map as an array including dupes
+     * 
+     * @return Object array of all elements in map
      */
-    public Object[] toArray()
-    {
+    public Object[] toArray(){
         Object[] r = new Object[numItems()];
         int i=0;
         for(K k:keySet())
@@ -132,28 +130,20 @@ public class DorasGreatMapAdventure<K,V>{
                 for(V v:iAmTheMap.get(k)){
                     r[i]=v;
                     ++i;
-        }
+                }
         return r;
     }
 
     /**
-     *      if tico is in the Set associate with key
-     *          remove tico from the set associated with key.
-     *          if the Set becomes Empty, remove the key from iAmTheMap
-     *      otherwise (tico is not in the Set) 
-     *          - do not throw an exception, that is exit the method gracefully
+     * Removes value tico from set in map linked to key
      */
-    public void remove(K key, V tico) {
+    public void remove(K key, V tico){
         if(iAmTheMap.get(key)!=null)
             iAmTheMap.get(key).remove(tico);
         if(isEmpty())
             iAmTheMap.clear();
     }
 
-    /**
-     *      remove isa from all sets
-     *          if the Set becomes Empty, remove the key from iAmTheMap
-     */
     public void removeFromAll(V isa){
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null)
@@ -162,13 +152,7 @@ public class DorasGreatMapAdventure<K,V>{
             iAmTheMap.clear();
     }
 
-    /**
-     *      Every key in this.iAmTheMap is a key in otherDorasGreatMapAdventure.iAMTheMap
-     *      Every key in otherDorasGreatMapAdventure.iAmTheMap is a key in this.iAMTheMap
-     *      Each pair of set for a given key are equal
-     *           that is,  iAmTheMap.get(key).equals(otherDorasGreatMapAdventure.iAmTheMap.get(key))
-     */
-    public boolean equals (Object otherDorasGreatMapAdventure) {
+    public boolean equals(Object otherDorasGreatMapAdventure){
         DorasGreatMapAdventure d = (DorasGreatMapAdventure)otherDorasGreatMapAdventure;
         if(!keySet().containsAll(d.keySet()))
             return false;
@@ -181,33 +165,19 @@ public class DorasGreatMapAdventure<K,V>{
         return true;
     }
 
-    /**
-     *      The String should be of the form:
-     *      "{key.toString()=iAmThemap.get(key).toString(), <repeat for all keys>}
-     *      a single = between key and set, with a comma and a single space between each key set pair
-     */
-    public String toString() {
+    public String toString(){
         String s = "{";
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null){
                 s+=k.toString()+"="+getMap().get(k).toString()+", ";
-        }
+            }
         if(s.length()>1)
             s=s.substring(0,s.length()-2);
         s+="}";
         return s;
     }
 
-    // stuff added after attempt 1
-
-    /**
-     *      Finds the largest value in all the sets contained in the map.
-     *      You should assume that all Sets contain comparable items
-     *      and that all sets are Comparable to each other
-     *      DorasGreatMapAdventure is NOT empty
-     */
-    public V maxItem()
-    {
+    public V maxItem(){
         V v = (V)"";
         Object[] os = toArray();
         for(Object o:os){
