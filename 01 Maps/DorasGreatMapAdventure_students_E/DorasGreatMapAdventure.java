@@ -138,18 +138,22 @@ public class DorasGreatMapAdventure<K,V>{
      * Removes value tico from set in map linked to key
      */
     public void remove(K key, V tico){
-        if(iAmTheMap.get(key)!=null)
+        if(iAmTheMap.get(key)!=null){
             iAmTheMap.get(key).remove(tico);
-        if(isEmpty())
-            iAmTheMap.clear();
+            if(iAmTheMap.get(key).size()==0)
+                keySet().remove(key);
+        }
     }
 
     public void removeFromAll(V isa){
-        for(K k:keySet())
+        HashSet h = new HashSet<K>();
+        for(K k:keySet()){
             if(iAmTheMap.get(k)!=null)
                 iAmTheMap.get(k).remove(isa);
-        if(isEmpty())
-            iAmTheMap.clear();
+            if(iAmTheMap.get(k).size()==0)
+                h.add(k);
+        }
+        keySet().removeAll(h);
     }
 
     public boolean equals(Object otherDorasGreatMapAdventure){
@@ -170,7 +174,7 @@ public class DorasGreatMapAdventure<K,V>{
         for(K k:keySet())
             if(iAmTheMap.get(k)!=null){
                 s+=k.toString()+"="+getMap().get(k).toString()+", ";
-            }
+        }
         if(s.length()>1)
             s=s.substring(0,s.length()-2);
         s+="}";
