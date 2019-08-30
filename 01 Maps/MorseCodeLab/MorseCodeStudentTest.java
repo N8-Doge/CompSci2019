@@ -17,7 +17,9 @@ public class MorseCodeStudentTest  extends junit.framework.TestCase
        String problemMessage = "decode test 1";
        String morse = ".- . .. --- ..- ";
        MorseCode.start();
-
+       
+       System.out.println(MorseCode.decode(morse));
+       
        assertEquals("AEIOU", MorseCode.decode(morse));
     }
 
@@ -27,6 +29,8 @@ public class MorseCodeStudentTest  extends junit.framework.TestCase
        String text = "I AM A CONSERVATIVE";
        MorseCode.start();
 
+       System.out.println(MorseCode.encode(text));
+       
        assertEquals("..  .- --  .-  -.-. --- -. ... . .-. ...- .- - .. ...- . ",
                                                         MorseCode.encode(text));
     }

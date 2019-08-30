@@ -1,3 +1,4 @@
+import java.util.TreeMap;
 /* 
  * @author:
  *  period:
@@ -9,9 +10,6 @@
  *  to use than this simpler TreNode class provided by The College Board
  *  during the years of the AP Computer Science AB test
  */
-
-import java.util.TreeMap;
-
 public class MorseCode
 {
     private static final char DOT = '.';
@@ -21,8 +19,7 @@ public class MorseCode
     private static TreeNode decodeTree;
 
     // this method is complete
-    public static void start()
-    {
+    public static void start(){
         codeMap = new TreeMap<Character, String>();
         decodeTree = new TreeNode(new Character(' '), null, null);
         // put a space in the root of the decoding tree
@@ -72,8 +69,7 @@ public class MorseCode
      *  Inserts a letter and its Morse code string into the encoding map (codeMap)
      *  and calls treeInsert to insert them into the decoding tree.
      */
-    private static void addSymbol(char letter, String code)
-    {
+    private static void addSymbol(char letter, String code){
         codeMap.put(letter,code);
         treeInsert(letter,code);
     }
@@ -85,18 +81,18 @@ public class MorseCode
      *  right.  The node at the end of the path holds the symbol
      *  for that code string.  See the word documents for more help.
      */
-    private static void treeInsert(char letter, String code)
-    {
+    private static void treeInsert(char letter, String code){
         TreeNode n = decodeTree;
         for(char c:code.toCharArray()){
-            if(n==null)
-                if(c=='.')
-                    n.setLeft(new TreeNode(new Character(' ')));
-                else
-                    n.setRight(new TreeNode(new Character(' ')));
-            if(c=='.')
+            if(n==null){
+                if(c==DOT)
+                    n.setLeft(new TreeNode(new Character(' '),null,null));
+                if(c==DASH)
+                    n.setRight(new TreeNode(new Character(' '),null,null));
+            }
+            if(c==DOT)
                 n=n.getLeft();
-            else
+            if(c==DASH)
                 n=n.getRight();
         }
         n.setValue(letter);
@@ -108,11 +104,11 @@ public class MorseCode
      *   into the encoded message.
      *   Returns the encoded message.
      */
-    public static String encode(String text)
-    {
-        String morse = "change me!!!";
-
-        return morse;
+    public static String encode(String text){
+        String s = "";
+        for(char c:text.toCharArray())
+            s+=codeMap.get(c)+" ";
+        return s;
     }
 
     /**
@@ -121,11 +117,24 @@ public class MorseCode
      *   transferred directly into text.
      *   Returns the plain text message.
      */
-    public static String decode(String morse)
-    {
-        StringBuffer text = new StringBuffer(100);
+    public static String decode(String morse){
+        String e = ""+morse;
+        String d = "";
+        while(e.length()>2){
+            d+=find(e.substring(0,e.indexOf(" ")));
+            e=e.substring(e.indexOf(" "));
+        }
+        return d;
+    }
 
-
-        return text.toString();
+    private static String find(String m){
+        TreeNode n = decodeTree;
+        for(char c:m.toCharArray()){
+            if(c==DOT)
+                n=n.getLeft();
+            if(c==DASH)
+                n=n.getRight();
+        }
+        return ""+n.getValue();
     }
 }

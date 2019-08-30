@@ -10,19 +10,19 @@ public class DorasGreatMapAdventurePart2<K, V> extends DorasGreatMapAdventure<K,
 {
 
     /**
-     *   If client creates a "hash" DorasGreatMapAdventure, key will have a reasonable hashCode, the associated set contains Objects
-     *   If client creates a "tree" DorasGreatMapAdventure, key will implement Comparable interface as required by the TreeMap() class,
-     *                                                                          the associated set contains Objects
+     * So basically hash or tree
+     * 
+     * @param   type    Hash or tree
      */
     public DorasGreatMapAdventurePart2(String type) {
         super(type);
     }
 
-    /**  returns a DorasGreatMapAdventure implemented with a HashMap
-     *      This allows me to take the union of DorasGreatMapAdventure implemented with TreeMaps and HashMap
-     *
-     *      the returned Map will contains the keys that are in either Map.
-     *      For keys that are in both Maps, the associated Sets will be a union of the two sets
+    /**
+     * Returns union of this map and boots' map
+     * 
+     * @param   boots   A dora map
+     * @return  A Dora2 union of this and boots
      */
     public DorasGreatMapAdventurePart2<K, V> mapUnion(DorasGreatMapAdventure<K, V> boots)
     {
@@ -36,27 +36,23 @@ public class DorasGreatMapAdventurePart2<K, V> extends DorasGreatMapAdventure<K,
         return u;
     }
 
-    /**  returns a DorasGreatMapAdventure implemented with a HashMap
-     *      This allows me to take the intersection of DorasGreatMapAdventure implemented with TreeMaps and HashMap
-     *
-     *      the returned Map will contains the keys that are only in both Maps.
-     *      the associated Sets will be an intersection of the two sets
+    /**
+     * Returns intersection of this and backpack
+     * 
+     * @param   backpack    A dora map
+     * @return  A Dora2 intersection of this and backpack
      */
     public DorasGreatMapAdventurePart2<K, V> mapIntersection(DorasGreatMapAdventure<K, V> backpack)
     {
         return mapDifference(mapDifference(backpack));
     }
 
-    /**  returns a DorasGreatMapAdventure implemented with a HashMap
-     *      This takes the difference of DorasGreatMapAdventure implemented with TreeMaps and HashMap
-     *
-     *      the returned Map will contain the keys that are in this.iAmTheMap.
-     *      for each key in this.iAmTheMap,
-     *      if that key is in swiper,
-     *         the associated set is the set difference of this.iAmTheMap - swiper.iAmTheMap
-     *         if the associated Set is Empty, remove the Key - Set pair from the Map
-     *      otherswise (key is NOT in swiper)
-     *         teh associated set is the set associated with key in this.iAmTheMap
+    /**
+     * Returns difference of this map and swipers map. 
+     * Mathematically it is this-swiper
+     * 
+     * @param   swiper  A dora map
+     * @return  A Dora2 of the difference
      */
     public DorasGreatMapAdventurePart2<K, V> mapDifference(DorasGreatMapAdventure<K, V> swiper)
     {
@@ -73,38 +69,37 @@ public class DorasGreatMapAdventurePart2<K, V> extends DorasGreatMapAdventure<K,
     }
 
     /**
-     *      returns true iff
-     *         for each key in this.iAmTheMap, backpack.iAmTheMap contains the same key
-     *         this.iAmTheMap.get(key) is a subset of backpack.iAmTheMap.get(k)
-     *      note:  this allows both Maps to be equal
-     *      otherwise return false
+     * Returns if this map is a submap of backpack.
+     * First checks if the same keys exist, then if those keys have the same values.
+     * 
+     * @param   backpack    A dora map
+     * @return  Boolean true if this is submap of backpack
      */
     public boolean isSubmapOf(DorasGreatMapAdventure<K, V> backpack) {
         for(K k:this.keySet())
-            if(backpack.keySet().contains(k))
-                for(V v:backpack.getMap().get(k)
-                    if(
-            else
+            if(backpack.keySet().contains(k)){
+                for(V v:this.getMap().get(k))
+                    if(!backpack.getMap().get(k).contains(v))
+                        return false;
+            }
+            else{
                 return false;
+            }
+        return true;
     }
 
     /**
-     *      returns true iff
-     *         for each key in this.iAmTheMap, backpack.iAmTheMap contains the same key
-     *         this.iAmTheMap.get(key) is a subset of backpack.iAmTheMap.get(key) for every key in iAmTheMap.keySet() with either:
-     *            1) this.iAmTheMap.get(key) is a proper subset of backpack.iAmTheMap.get(key) for atleast one key in iAmTheMap.keySet()
-     *         or 2) backpack.iAmTheMap contains at least one key that this.iAmTheMap does not
-     *      note:  this implies that equal sets are NOT properSubsets.
-     *      otherwise return false
+     * Returns if this map is a submap of backpack but backpack isn't a submap of this
+     * 
+     * @param   s   A dora map
+     * @return  Boolean true if this is proper submap of s
      */
     public boolean isProperSubmapOf(DorasGreatMapAdventure<K, V> s) {
-        return 0 == (int)(2*Math.random());  // so compiles
+        return isSubmapOf(s) && !s.equals(this);
     }
 
-    
     /**
-     *      Removes all mappings from this map
-     *  postCondition:  keySet().size() == 0
+     * Clears all keys in map
      */
     public void clear() {
         if(keySet().size()!=0)
@@ -112,10 +107,9 @@ public class DorasGreatMapAdventurePart2<K, V> extends DorasGreatMapAdventure<K,
     }
 
     /**
-     *      the set associated with key isa is emptied
-     *  postCondition:  getMap().get(isa).size() == 0
-     *      if isa is not a key
-     *          - do not throw an exception, that is exit the method gracefully
+     * Clears the value in map related to key
+     * 
+     * @param   isa     Key to be cleared
      */
     public void clearKey(K isa) {
         if(keySet().contains(isa))
@@ -123,7 +117,9 @@ public class DorasGreatMapAdventurePart2<K, V> extends DorasGreatMapAdventure<K,
     }
 
     /**
-     *      returns the number key-value mapping in iAmTheMap
+     * Returns size of keySet
+     * 
+     * @return  Integer for keySet  size
      */
     public int numMappings() {
         return keySet().size();

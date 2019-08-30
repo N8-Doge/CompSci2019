@@ -13,4 +13,6 @@ comment3.text=\r\n\ \ \ Converts\ text\ into\ a\ Morse\ code\ message.\ \ Adds\ 
 comment4.params=morse
 comment4.target=java.lang.String\ decode(java.lang.String)
 comment4.text=\r\n\ \ \ Converts\ a\ Morse\ code\ message\ into\ a\ text\ string.\ \ Assumes\ that\ dot-dash\r\n\ \ \ sequences\ for\ each\ letter\ are\ separated\ by\ one\ space.\ \ Additional\ spaces\ are\r\n\ \ \ transferred\ directly\ into\ text.\r\n\ \ \ Returns\ the\ plain\ text\ message.\r\n
-numComments=5
+comment5.params=m
+comment5.target=java.lang.String\ find(java.lang.String)
+numComments=6
