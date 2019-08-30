@@ -21,7 +21,7 @@ public class MorseCode
     // this method is complete
     public static void start(){
         codeMap = new TreeMap<Character, String>();
-        decodeTree = new TreeNode(new Character(' '), null, null);
+        decodeTree = new TreeNode(' ');
         // put a space in the root of the decoding tree
 
         addSymbol('A', ".-");
@@ -84,18 +84,22 @@ public class MorseCode
     private static void treeInsert(char letter, String code){
         TreeNode n = decodeTree;
         for(char c:code.toCharArray()){
-            if(n==null){
-                if(c==DOT)
-                    n.setLeft(new TreeNode(new Character(' '),null,null));
-                if(c==DASH)
-                    n.setRight(new TreeNode(new Character(' '),null,null));
-            }
             if(c==DOT)
                 n=n.getLeft();
             if(c==DASH)
                 n=n.getRight();
+            if(n==null)
+                n=new TreeNode(new Character(' '));
         }
         n.setValue(letter);
+    }
+    
+    private static void insert(char letter,String code,TreeNode t){
+        if(code.length()==0){
+            t.setValue(letter);
+            return;
+        }
+        
     }
 
     /**
@@ -106,8 +110,11 @@ public class MorseCode
      */
     public static String encode(String text){
         String s = "";
-        for(char c:text.toCharArray())
-            s+=codeMap.get(c)+" ";
+        for(char c:text.toCharArray()){
+            if(c!=' ')
+                s+=codeMap.get(c);
+            s+=" ";
+        }
         return s;
     }
 
@@ -121,8 +128,8 @@ public class MorseCode
         String e = ""+morse;
         String d = "";
         while(e.length()>2){
-            d+=find(e.substring(0,e.indexOf(" ")));
-            e=e.substring(e.indexOf(" "));
+            d+=find(e.substring(0,e.indexOf(" ")+1));
+            e=e.substring(e.indexOf(" ")+1);
         }
         return d;
     }
@@ -130,11 +137,24 @@ public class MorseCode
     private static String find(String m){
         TreeNode n = decodeTree;
         for(char c:m.toCharArray()){
+            System.out.println(n.getValue());
             if(c==DOT)
                 n=n.getLeft();
             if(c==DASH)
                 n=n.getRight();
         }
         return ""+n.getValue();
+    }
+    
+    public static void inOrderTraverse(){
+        traverse(decodeTree);
+    }
+    
+    private static void traverse(TreeNode t){
+        if(t.getValue()==null)
+            return;
+        traverse(t.getLeft());
+        System.out.println(t.getValue());
+        traverse(t.getRight());
     }
 }
