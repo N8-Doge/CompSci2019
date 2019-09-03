@@ -30,12 +30,5 @@ public class MorseCodeStudentTest  extends junit.framework.TestCase
        assertEquals("..  .- --  .-  -.-. --- -. ... . .-. ...- .- - .. ...- . ",
                                                         MorseCode.encode(text));
     }
-    
-    
-    public void testTree()
-    {
-        MorseCode.start();
-        MorseCode.inOrderTraverse();
-    }
 }
 

@@ -1,29 +1,20 @@
 import java.util.TreeMap;
 /* 
- * @author:
- *  period:
- *
- *  directions: complete the methods below. the lab should be case insensitive
- *
- *  You should use the TreeNode class provided in this project
- *  I have been told the java version of TreeNode is more complicated
- *  to use than this simpler TreNode class provided by The College Board
- *  during the years of the AP Computer Science AB test
+ * MorseCode and stuff like that
  */
-public class MorseCode
-{
+public class MorseCode{
+    //Instance Variables
     private static final char DOT = '.';
     private static final char DASH = '-';
-
     private static TreeMap<Character, String> codeMap;
     private static TreeNode decodeTree;
 
-    // this method is complete
+    /**
+     * Init method
+     */
     public static void start(){
         codeMap = new TreeMap<Character, String>();
         decodeTree = new TreeNode(' ');
-        // put a space in the root of the decoding tree
-
         addSymbol('A', ".-");
         addSymbol('B', "-...");
         addSymbol('C', "-.-.");
@@ -66,8 +57,7 @@ public class MorseCode
     }
 
     /**
-     *  Inserts a letter and its Morse code string into the encoding map (codeMap)
-     *  and calls treeInsert to insert them into the decoding tree.
+     *  Puts code into map and tree
      */
     private static void addSymbol(char letter, String code){
         codeMap.put(letter,code);
@@ -75,38 +65,27 @@ public class MorseCode
     }
 
     /**
-     *  Inserts a letter according to its Morse code string into the 
-     *  decoding tree.  Each dot-dash string corresponds to a path
-     *  in the tree from the root to a node: at a "dot" go left, at a "dash" go
-     *  right.  The node at the end of the path holds the symbol
-     *  for that code string.  See the word documents for more help.
+     *  Puts letter into tree depending on code. 
+     *  Dot goes left, dash goes right
      */
     private static void treeInsert(char letter, String code){
-        TreeNode n = decodeTree;
-        for(char c:code.toCharArray()){
-            if(c==DOT)
-                n=n.getLeft();
-            if(c==DASH)
-                n=n.getRight();
-            if(n==null)
-                n=new TreeNode(new Character(' '));
-        }
-        n.setValue(letter);
+        insert(letter,code,decodeTree);
     }
     
-    private static void insert(char letter,String code,TreeNode t){
-        if(code.length()==0){
-            t.setValue(letter);
-            return;
-        }
-        
+    private static void insert(char letter, String code, TreeNode current){
+        if(current==null)
+            current=new TreeNode(' ');
+        if(code.length()==0)
+            current.setValue(letter);
+        else
+            if(code.charAt(0)==DOT)
+                insert(letter,code.substring(1),current.getLeft());
+            else
+                insert(letter,code.substring(1),current.getRight());
     }
 
     /**
-     *   Converts text into a Morse code message.  Adds a space after a dot-dash
-     *   sequence for each letter.  Other spaces in the text are transferred directly
-     *   into the encoded message.
-     *   Returns the encoded message.
+     *   Converts a string to morse using codeMap
      */
     public static String encode(String text){
         String s = "";
@@ -119,42 +98,25 @@ public class MorseCode
     }
 
     /**
-     *   Converts a Morse code message into a text string.  Assumes that dot-dash
-     *   sequences for each letter are separated by one space.  Additional spaces are
-     *   transferred directly into text.
-     *   Returns the plain text message.
+     * Decodes a morse string to text using decodeTree
      */
     public static String decode(String morse){
         String e = ""+morse;
         String d = "";
         while(e.length()>2){
-            d+=find(e.substring(0,e.indexOf(" ")+1));
+            d+=find(e.substring(0,e.indexOf(" ")+1),decodeTree);
             e=e.substring(e.indexOf(" ")+1);
         }
         return d;
     }
 
-    private static String find(String m){
-        TreeNode n = decodeTree;
-        for(char c:m.toCharArray()){
-            System.out.println(n.getValue());
-            if(c==DOT)
-                n=n.getLeft();
-            if(c==DASH)
-                n=n.getRight();
-        }
-        return ""+n.getValue();
-    }
-    
-    public static void inOrderTraverse(){
-        traverse(decodeTree);
-    }
-    
-    private static void traverse(TreeNode t){
-        if(t.getValue()==null)
-            return;
-        traverse(t.getLeft());
-        System.out.println(t.getValue());
-        traverse(t.getRight());
+    public static String find(String m, TreeNode n){
+        if(m.length()==0)
+            return ""+n.getValue();
+        if(m.charAt(0)==DOT)
+            return find(m.substring(1),n.getLeft());
+        if(m.charAt(0)==DASH)
+            return find(m.substring(1),n.getRight());
+        return " ";
     }
 }
