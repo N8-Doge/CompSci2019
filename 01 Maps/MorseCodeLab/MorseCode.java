@@ -71,17 +71,18 @@ public class MorseCode{
     private static void treeInsert(char letter, String code){
         insert(letter,code,decodeTree);
     }
-    
-    private static void insert(char letter, String code, TreeNode current){
-        if(current==null)
-            current=new TreeNode(' ');
-        if(code.length()==0)
-            current.setValue(letter);
-        else
-            if(code.charAt(0)==DOT)
-                insert(letter,code.substring(1),current.getLeft());
-            else
-                insert(letter,code.substring(1),current.getRight());
+
+    private static void insert(char c, String s, TreeNode n){
+        if(n==null)
+            n=new TreeNode(' ');
+        if(s.length()==0)
+            n.setValue(c);
+        else{
+            if(s.charAt(0)==DOT)
+                insert(c,s.substring(1),n.getLeft());
+            if(s.charAt(0)==DASH)
+                insert(c,s.substring(1),n.getRight());
+        }
     }
 
     /**
@@ -111,12 +112,33 @@ public class MorseCode{
     }
 
     public static String find(String m, TreeNode n){
-        if(m.length()==0)
+        System.out.println("Finding "+m);
+        if(m.length()==1){
+            System.out.println("I found a "+n.getValue());
             return ""+n.getValue();
+        }
+        System.out.println("Examining "+m.charAt(0));
         if(m.charAt(0)==DOT)
             return find(m.substring(1),n.getLeft());
         if(m.charAt(0)==DASH)
             return find(m.substring(1),n.getRight());
+        System.out.println("unreachable statement");
         return " ";
+    }
+
+    public static void tester(){
+        start();
+        //traverse(decodeTree,"");
+        System.out.println(find(".-",decodeTree));
+        System.out.println(find("..-",decodeTree));
+        System.out.println(find(" ",decodeTree));
+    }
+
+    private static void traverse(TreeNode n,String s){
+        if(n.getValue()==null)
+            return;
+        traverse(n.getLeft(),s+".");
+        System.out.println(s+n.getValue());
+        traverse(n.getRight(),s+"-");
     }
 }
