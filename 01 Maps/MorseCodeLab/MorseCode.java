@@ -102,18 +102,15 @@ public class MorseCode{
      * Decodes a morse string to text using decodeTree
      */
     public static String decode(String morse){
-        String e = ""+morse;
-        String d = "";
-        while(e.length()>2){
-            d+=find(e.substring(0,e.indexOf(" ")+1),decodeTree);
-            e=e.substring(e.indexOf(" ")+1);
-        }
+        String d="";
+        for(String s:morse.split(" "))
+            d+=find(s,decodeTree);
         return d;
     }
 
     public static String find(String m, TreeNode n){
         System.out.println("Finding "+m);
-        if(m.length()==1){
+        if(m.length()==0){
             System.out.println("I found a "+n.getValue());
             return ""+n.getValue();
         }
