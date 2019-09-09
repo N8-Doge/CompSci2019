@@ -1,32 +1,33 @@
 import java.util.*;
 import java.lang.Math;
 /**
- * RunRunRunAroundNumbers.
- *
- * @author  
- * @version (a version number or a date)
+ * A lab
  */
 public class RunRunRunAroundNumbers
 {
-   public static boolean isRunRoundNumber(int num)
-   {
-   	   if (num == 13) return true;
-   	   if (num == 81362) return true;
-   	   if (num == 913425) return true;
+    public static boolean isRunRoundNumber(int num)
+    {
+        String s = Integer.toString(num);
+        String f = "";
+        int i = (Character.getNumericValue(s.charAt(0)))%s.length();
+        int j = Character.getNumericValue(s.charAt(i));
+        for(char c:s.toCharArray())
+            f+="x";
+        while(!s.equals(f)){
+            if(s.charAt(i)=='x')
+                return false;
+            s=s.substring(0,i)+"x"+s.substring(i+1);
+            i=(j+i)%s.length();
+            j=Character.getNumericValue(s.charAt(i));
+        }
+        return true;
+    }
 
-   	   if (num == 123) return false;
-   	   if (num == 81111) return false;
-   	   if (num == 83333) return false;
-   	   
-       return false;
-   }
-
-   public static int getNextRunAroundNumber(int seqNum)
-   {
-      if ( seqNum == 123) return 147;
-      if ( seqNum == 81111) return 81236;
-      if ( seqNum == 83333) return 83491;
-      
-      return 0;
-   }
+    public static int getNextRunAroundNumber(int seqNum)
+    {
+        int i=seqNum+1;
+        while(!isRunRoundNumber(i))
+            ++i;
+        return i;
+    }
 }
