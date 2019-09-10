@@ -20,7 +20,7 @@ public class StudentTester extends junit.framework.TestCase
       assertEquals(false, rrr.isRunRoundNumber(123));
       assertEquals(false, rrr.isRunRoundNumber(81111));
       assertEquals(false, rrr.isRunRoundNumber(83333));
-
+      
       assertEquals(81362, rrr.getNextRunAroundNumber(81362));
       assertEquals(147, rrr.getNextRunAroundNumber(123));
       assertEquals(81236, rrr.getNextRunAroundNumber(81111));

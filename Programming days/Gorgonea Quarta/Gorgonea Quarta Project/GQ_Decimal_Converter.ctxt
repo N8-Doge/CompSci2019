@@ -1,7 +1,12 @@
 #BlueJ class context
-comment0.target=GQ_Decimal_Converter
-comment1.params=s
-comment1.target=int\ toDecimal(java.lang.String)
+comment0.params=s
+comment0.target=int\ toDecimal(java.lang.String)
+comment1.params=num
+comment1.target=java.lang.String\ toGQ(int)
 comment2.params=num
-comment2.target=java.lang.String\ toGQ(int)
-numComments=3
+comment2.target=java.lang.String\ toB3(int)
+comment3.params=s
+comment3.target=java.lang.String\ b3toGQ(java.lang.String)
+comment4.params=
+comment4.target=void\ print()
+numComments=5
