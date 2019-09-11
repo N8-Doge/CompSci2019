@@ -19,13 +19,15 @@ public class DigitalEgyptianFraction extends Fraction
     public static List<DigitalEgyptianFraction> getListOfDigitalEgyptianFractions(Fraction f)
     {
         List<DigitalEgyptianFraction> ans = new ArrayList<DigitalEgyptianFraction>();
-        Fraction s = new Fraction(f.getTop(),f.getBottom());
-        double n = 2;
-        while(s.getDecimal()!=0.0D)
-            if((1.0D/n)<s.getDecimal()){
-                ans.add(new DigitalEgyptianFraction((int)n));
-                s.subtract(new Fraction(1,(int)n));
+        int i = 2,n = f.getTop();
+        while(n>0){
+            int m = f.getBottom()/i;
+            if(m<=n){
+                ans.add(new DigitalEgyptianFraction(i));
+                n-=m;
             }
+            i*=2;
+        }
         return ans;
     }
 }

@@ -14,7 +14,9 @@ public class GQ_Decimal_Converter{
     }
 
     public static String toGQ(int num){
-        StringBuilder s = new StringBuilder(toB3(Math.abs(num)));
+        if(num==0)
+            return "0";
+        StringBuilder s = new StringBuilder(Integer.toString(Math.abs(num),3));
         for(int i=s.length()-1;i>=0;--i){
             if(s.charAt(i)=='2'||s.charAt(i)=='3'){
                 char c = (s.charAt(i)=='2')?'-':'0';
@@ -27,13 +29,11 @@ public class GQ_Decimal_Converter{
                 }
             }
         }
-        return(num<0) ? s.toString().replace('-','x').replace('1','-').replace('x','1') : s.toString();
-    }
-
-    public static String toB3(int num){
-        String s = "";
-        for(int i=num;i>0;i/=3)
-            s=Integer.toString(i%3)+s;
-        return s;
+        String r = (num<0) 
+            ? s.toString().replace('-','x').replace('1','-').replace('x','1') 
+            : s.toString();
+        while(r.charAt(0)=='0')
+            r=r.substring(1);
+        return r;
     }
 }

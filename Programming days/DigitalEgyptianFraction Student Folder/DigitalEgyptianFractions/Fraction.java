@@ -1,50 +1,26 @@
-//  all values will be less than or equal to 1.
-
 import java.util.*;
-
 public class Fraction implements Comparable<Fraction>
 {
-    private int top; //uwu
-    private int bottom; //owo
+    private int top,bottom;
 
-    public Fraction(int t, int b)
-    {
+    public Fraction(int t, int b){
         this.top = t;
         this.bottom = b;
     }
 
-    /*
-     * returns
-     *       a value less than 0 if this < f
-     *       0 if f == this
-     *       a value greater than 0 if this > f
-     */
-    public int compareTo(Fraction f)
-    {
+    public int compareTo(Fraction f){
         return (int)((this.getDecimal()-f.getDecimal())*100.0D);
     }
 
-    /*
-     * returns the numerator of this fraction
-     */
-    public int getTop()
-    {
+    public int getTop(){
         return this.top;
     }
 
-    /*
-     * returns the denominator of this fraction
-     */
-    public int getBottom()
-    {
+    public int getBottom(){
         return this.bottom;
     }
 
-    /*
-     * returns the decimal value this fraction (i.e., numerator / denominator
-     */
-    public double getDecimal()
-    {
+    public double getDecimal(){
         return (double)this.top/(double)this.bottom;
     }
 
@@ -53,61 +29,51 @@ public class Fraction implements Comparable<Fraction>
      * returns the simplified fraction computed by summing all fractions
      *         in it List parameter fs
      */
-    public static Fraction addAllFractionsInList(List<Fraction> fs)
-    {
+    public static Fraction addAllFractionsInList(List<Fraction> fs){
         int gcm = 1, t = 0;;
         for(Fraction f : fs)
             gcm*=f.getBottom();
         for(Fraction f : fs)
             t+=(f.getTop()*gcm)/f.getBottom();
-        return new Fraction(t,gcm);
+        Fraction f = new Fraction(t,gcm);
+        f.simplify();
+        return f;
     }
 
-    /*
-     * modifies this by subtracting the parameter f from it
-     */
-    public void subtract(Fraction f)
-    {
+    public void subtract(Fraction f){
         this.top = (this.top*f.getBottom())-(f.getTop()*this.bottom);
         this.bottom = this.bottom*f.getBottom();
+        simplify();
     }
 
-    /*
-     * modifies this by adding the parameter f to it
-     */
-    public void add(Fraction f)
-    {
+    public void add(Fraction f){
         this.top = (this.top*f.getBottom())+(f.getTop()*this.bottom);
         this.bottom = this.bottom*f.getBottom();
+        simplify();
     }
 
-    /*
-     * modifies this by multipling it by the parameter f
-     */
-    public void multiply(Fraction f)
-    {
+    public void multiply(Fraction f){
         this.top *= f.getTop();
         this.bottom *= f.getBottom();
+        simplify();
     }
 
-    /*
-     * returns true if the the two objects are equal.
-     *         You may assume both Fractions are in simplest form
-     */
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj){
         return compareTo((Fraction)obj)==0;
     }
 
-    /*
-     * returns a string in the form
-     * 
-     *              "numerator / denominator"
-     *         there is exactly one space on both sides of /
-     *         no space infront of the numerator and no spaces after the denominator
-     */
-    public String toString()
-    {
+    public String toString(){
+        simplify();
         return Integer.toString(top)+" / "+Integer.toString(bottom);
+    }
+
+    private void simplify(){
+        int gcm = gcm(top,bottom);
+        top/=gcm;
+        bottom/=gcm;
+    }
+
+    public static int gcm(int a, int b){
+        return b==0 ? a : gcm(b, a % b);
     }
 }
