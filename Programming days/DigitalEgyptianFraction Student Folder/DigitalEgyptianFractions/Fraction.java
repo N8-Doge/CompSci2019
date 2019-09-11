@@ -1,6 +1,5 @@
 import java.util.*;
-public class Fraction implements Comparable<Fraction>
-{
+public class Fraction implements Comparable<Fraction>{
     private int top,bottom;
 
     public Fraction(int t, int b){
@@ -24,19 +23,10 @@ public class Fraction implements Comparable<Fraction>
         return (double)this.top/(double)this.bottom;
     }
 
-    /*
-     * A static method
-     * returns the simplified fraction computed by summing all fractions
-     *         in it List parameter fs
-     */
     public static Fraction addAllFractionsInList(List<Fraction> fs){
-        int gcm = 1, t = 0;;
-        for(Fraction f : fs)
-            gcm*=f.getBottom();
-        for(Fraction f : fs)
-            t+=(f.getTop()*gcm)/f.getBottom();
-        Fraction f = new Fraction(t,gcm);
-        f.simplify();
+        Fraction f = new Fraction(0,1);
+        for(Fraction s : fs)
+            f.add(s);
         return f;
     }
 

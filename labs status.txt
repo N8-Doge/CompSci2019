@@ -2,6 +2,6 @@
 01 	-	tested 100
 gq 	-	tested 100
 runrun	-	tested 100
-isbn	-	untested
-egypt	-	tested error
-2s	-	in progress	
+isbn	-	untested	-	tester not availible
+egypt	-	tested 90	-	fixed error
+2s	-	untested	-	in progress
