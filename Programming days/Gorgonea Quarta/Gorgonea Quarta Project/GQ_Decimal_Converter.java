@@ -21,8 +21,10 @@ public class GQ_Decimal_Converter{
                 s.setCharAt(i,c);
                 if(i==0)
                     s=new StringBuilder("1").append(s);
-                else
-                    s.setCharAt(i-1,(char)(s.charAt(i-1)+1));
+                else{
+                    c = (s.charAt(i-1)=='-')?'1':(char)(s.charAt(i-1)+1);
+                    s.setCharAt(i-1,c);
+                }
             }
         }
         return(num<0) ? s.toString().replace('-','x').replace('1','-').replace('x','1') : s.toString();

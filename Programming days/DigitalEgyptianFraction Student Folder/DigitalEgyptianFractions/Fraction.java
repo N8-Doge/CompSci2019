@@ -21,7 +21,7 @@ public class Fraction implements Comparable<Fraction>
      */
     public int compareTo(Fraction f)
     {
-        return 1;
+        return (int)((this.getDecimal()-f.getDecimal())*100.0D);
     }
 
     /*
@@ -57,10 +57,9 @@ public class Fraction implements Comparable<Fraction>
     {
         int gcm = 1, t = 0;;
         for(Fraction f : fs)
-            if(gcm%f.getBottom()!=0)
-                gcm*=f.getBottom();
+            gcm*=f.getBottom();
         for(Fraction f : fs)
-            t+=(f.getTop()*gcm)/gcm;
+            t+=(f.getTop()*gcm)/f.getBottom();
         return new Fraction(t,gcm);
     }
 
@@ -69,6 +68,8 @@ public class Fraction implements Comparable<Fraction>
      */
     public void subtract(Fraction f)
     {
+        this.top = (this.top*f.getBottom())-(f.getTop()*this.bottom);
+        this.bottom = this.bottom*f.getBottom();
     }
 
     /*
@@ -76,6 +77,8 @@ public class Fraction implements Comparable<Fraction>
      */
     public void add(Fraction f)
     {
+        this.top = (this.top*f.getBottom())+(f.getTop()*this.bottom);
+        this.bottom = this.bottom*f.getBottom();
     }
 
     /*
@@ -83,6 +86,8 @@ public class Fraction implements Comparable<Fraction>
      */
     public void multiply(Fraction f)
     {
+        this.top *= f.getTop();
+        this.bottom *= f.getBottom();
     }
 
     /*
@@ -91,7 +96,7 @@ public class Fraction implements Comparable<Fraction>
      */
     public boolean equals(Object obj)
     {
-        return ((Fraction)obj).getDecimal()==getDecimal();
+        return compareTo((Fraction)obj)==0;
     }
 
     /*
