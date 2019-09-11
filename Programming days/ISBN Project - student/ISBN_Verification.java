@@ -1,24 +1,22 @@
 import java.lang.*;
-
-/**
- * See page bottom of 120/ top of page 121 in the Descrete Math book 
- * for instructions on valid ISBN numbers
- * 
- * @author 
- * @version (a version number or a date)
- */
-public class ISBN_Verification
-{
-/*
- *    isbn will have the form
- *          "###-#-#####-###-#"
- *     or   "####-##-##-####-#"
- *     or   "####-###-###-##-#"
- *     or   "####-##-####-##-#"
- *     or  ......
- */
-   public boolean isValid(String isbn)
-   {
-      return Math.random() < 0.5;
-   }
+import java.util.*;
+public class ISBN_Verification{
+    public boolean isValid(String isbn){
+        StringBuilder s = new StringBuilder(isbn);
+        for(int i=s.length()-1;i>=0;--i)
+            if(s.charAt(i)=='-')
+                s.deleteCharAt(i);
+        s.deleteCharAt(s.length()-1);
+        boolean b = false;
+        int r=0;
+        for(char c:s.toString().toCharArray()){
+            int j = Character.getNumericValue(c);
+            if(b) 
+                j*=3;
+            r+=j;
+            b=!b;
+        }
+        r=10-r%10;
+        return r==Integer.parseInt(isbn.substring(isbn.length()-1));
+    }
 }

@@ -1,8 +1,7 @@
 import java.util.*;
 public class GQ_Decimal_Converter{
     public static int toDecimal(String s){
-        int r=0;
-        int i=1;
+        int r=0,i=1;
         char[] ca = new StringBuilder(s).reverse().toString().toCharArray();
         for(char c: ca){
             if(c=='1')
@@ -15,38 +14,24 @@ public class GQ_Decimal_Converter{
     }
 
     public static String toGQ(int num){
-        if(num==0)
-            return "0";
-        int i=0;
-        String r=b3toGQ("0");
-        while(toDecimal(r)!=num){
-            ++i;
-            r=b3toGQ(toB3(i));
+        StringBuilder s = new StringBuilder(toB3(Math.abs(num)));
+        for(int i=s.length()-1;i>=0;--i){
+            if(s.charAt(i)=='2'||s.charAt(i)=='3'){
+                char c = (s.charAt(i)=='2')?'-':'0';
+                s.setCharAt(i,c);
+                if(i==0)
+                    s=new StringBuilder("1").append(s);
+                else
+                    s.setCharAt(i-1,(char)(s.charAt(i-1)+1));
+            }
         }
-        return b3toGQ(toB3(i));
-    }
-    
-    private static String toB3(int num){
-        int n = num;
-        int i = 3;
-        String s="";
-        while (n>0){
-            s=s+(n%i);
-            i*=3;
-            n/=3;
-        }
-        return s;
-    }
-    
-    private static String b3toGQ(String s){
-        String r = s.replace('0','-').replace('1','0').replace('2','1');
-        if(r.charAt(0)=='0')
-            r=r.substring(1);
-        return r;
+        return(num<0) ? s.toString().replace('-','x').replace('1','-').replace('x','1') : s.toString();
     }
 
-    public static void print(){
-        for(int i=0;i<=1024;i=i+2)
-            System.out.println(""+i+" is '"+toB3(i)+"'");
+    public static String toB3(int num){
+        String s = "";
+        for(int i=num;i>0;i/=3)
+            s=Integer.toString(i%3)+s;
+        return s;
     }
 }
