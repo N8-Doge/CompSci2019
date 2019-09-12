@@ -16,7 +16,7 @@ public class Twos_Complement{
         String s = Integer.toString(Math.abs(val),2);
         while(s.length()!=bits)
             s="0"+s;
-        return (val<0) ?invert(s) :s;
+        return val<0 ? invert(s) : s;
     }
 
     public static String invert(String s){
@@ -24,8 +24,12 @@ public class Twos_Complement{
         StringBuilder b = new StringBuilder(t);
         b.setCharAt(b.length()-1,(char)(b.charAt(b.length()-1)+1));
         for(int i=b.length()-1;i>=0;--i)
-            if(b.charAt(i)=='2')
-                b.setCharAt(i-1,(char)(b.charAt(i-1)+1));
-      return b.toString();
+            if(b.charAt(i)>='2'){
+                char c = b.charAt(i)=='2' ? '0' : '1';
+                b.setCharAt(i,c);
+                if(i!=0)
+                    b.setCharAt(i-1,(char)(b.charAt(i-1)+1));
+            }
+        return b.toString();
     }
 }

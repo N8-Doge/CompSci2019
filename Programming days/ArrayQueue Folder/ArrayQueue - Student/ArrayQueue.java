@@ -10,7 +10,7 @@ public class ArrayQueue{
     }
 
     public void enqueue(String item){
-        if(size==myQueue.length){
+        if(size==myQueue.length-1){
             String[] nq = new String[size*2];
             for(int i=0;i<myQueue.length;++i)
                 nq[i]=myQueue[i];

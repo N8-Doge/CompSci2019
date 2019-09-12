@@ -3,5 +3,6 @@
 gq 	-	tested 100
 runrun	-	tested 100
 isbn	-	untested	-	tester not availible
-egypt	-	tested 90	-	fixed error
-2s	-	untested	-	in progress
+egypt	-	tested 100
+2s	-	tested 100
+queue	-	untested	-	tester not availible
