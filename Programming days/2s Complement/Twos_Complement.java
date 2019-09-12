@@ -1,21 +1,8 @@
-/*
- * code authored by Maria & Gary Litvan
- */
-
-public class Twos_Complement
-{
+import java.util.*;
+public class Twos_Complement{
     private String type;
 
-    /*
-     * Convert the 2s complement representation to its integer equivalent
-     * 
-     * precondition  s is the 2s complement number that is to be convert to an int
-     *               The number of bits = s.length()
-     * 
-     *                 see the student tester for sample input/output
-     */
-    public static int convertToDecimal(String s)
-    {
+    public static int convertToDecimal(String s){
         int r=0;
         for(int i=0;i<s.length()-1;++i)
             if(s.charAt(s.length()-i-1)=='1')
@@ -25,33 +12,20 @@ public class Twos_Complement
         return r;
     }
 
-    /*
-     * Convert the int parameter val to its 2s complement representatino
-     * 
-     * precondition:  -2^(bits-1) <+ val <+ (2^[bits-1]) - 1
-     *                i.e., the valu fits in the range
-     *                
-     * postcondition   The return value has length() == bits
-     * 
-     *                 see the student tester for sample input/output
-     */
-    public static String convertDecimalTo2sComplement(int val, int bits)
-    {
-        return "";
+    public static String convertDecimalTo2sComplement(int val, int bits){
+        String s = Integer.toString(Math.abs(val),2);
+        while(s.length()!=bits)
+            s="0"+s;
+        return (val<0) ?invert(s) :s;
     }
 
-    /*
-     *    inverts the String parameter s to it negative value
-     *    precondition:  s is a valid 2s complement number with s.length() bits
-     *    
-     *    postcondition  return a string with length() == s.length()
-     *                   the decimals value of s == - decimal value of return String
-     *                   
-     *                   e.g.,  If s = 0111, the String 1001 is returned
-     *                          If s = 001, the String 111 is returned
-     */
-    public static String invert(String s)
-    {
-        return "";
+    public static String invert(String s){
+        String t = s.replace('0','x').replace('1','0').replace('x','1');
+        StringBuilder b = new StringBuilder(t);
+        b.setCharAt(b.length()-1,(char)(b.charAt(b.length()-1)+1));
+        for(int i=b.length()-1;i>=0;--i)
+            if(b.charAt(i)=='2')
+                b.setCharAt(i-1,(char)(b.charAt(i-1)+1));
+      return b.toString();
     }
 }
