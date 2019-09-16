@@ -1,6 +1,4 @@
 #BlueJ class context
-comment0.target=StudentLinkedListPartATest
-comment0.text=\r\n\ The\ test\ class\ for\ SinglyLinkedListTest\ for\ Part\ B\r\n\ \r\n\ \ \ \ test\ the\ following\ methods\r\n\ \ \ \ \ \ \ toString()\r\n\ \ \ \ \ \ \ add(int,\ Object)\r\n\ \ \ \ \ \ \ get(int)\r\n\ \ \ \ \ \ \ getNodeAtIndex(int)\r\n\ \ \ \ \ \ \ size()\r\n\ \ \ \ \ \ \ contains(Object)\r\n\ \ \ \ \ \ \ isEmpty()\r\n
-comment1.params=
-comment1.target=void\ testPartA()
-numComments=2
+comment0.params=
+comment0.target=void\ testPartA()
+numComments=1

@@ -1,6 +1,4 @@
 #BlueJ class context
-comment0.target=StudentLinkedListPartCTest
-comment0.text=\r\n\ The\ test\ class\ for\ SinglyLinkedListTest\ for\ Part\ C\r\n\ \r\n\ \ \ \ test\ the\ following\ methods\r\n\ \ \ \ \ \ \ remove(int)\r\n\ \ \ \ \ \ \ remove(Object)\r\n\ \ \ \ \ \ \ removeAll(Object)\r\n\ \ \ \ \ \ \ removeFirst()\r\n\ \ \ \ \ \ \ removeLast()\r\n\ \r\n
-comment1.params=
-comment1.target=void\ testPartc()
-numComments=2
+comment0.params=
+comment0.target=void\ testPartc()
+numComments=1

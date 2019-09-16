@@ -14,7 +14,12 @@ public class SinglyLinkedList{
      *    returns  [] if the List is empty
      */    
     public String toString(){
-        return "[]";
+        String s = "[";
+        for(int i=0;i<size();++i)
+            s+=getNodeAtIndex(i).getValue().toString()+", ";
+        if(s.length()!=1)
+            s=s.substring(0,s.length()-2);
+        return s+"]";
     }
 
     /*    insert obj at index ind, shift all previous objects to the next higher index
@@ -24,9 +29,12 @@ public class SinglyLinkedList{
      *     preCondition: 0 <= ind <= size()
      */
     public void add(int ind, Object obj){
-        if(ind==0)
+        if(first==null)
             first=new ListNode(obj,null);
-        getNodeAtIndex(ind-1).setNext(new ListNode(obj,getNodeAtIndex(ind)));
+        else if(ind==0)
+            first=new ListNode(obj,first);
+        else
+            getNodeAtIndex(ind-1).setNext(new ListNode(obj,getNodeAtIndex(ind)));
     }
 
     /*
@@ -36,6 +44,8 @@ public class SinglyLinkedList{
      *                   if list is empty return null
      */
     public Object get(int ind){
+        if(first==null)
+            return null;
         return getNodeAtIndex(ind).getValue();
     }
 
@@ -47,6 +57,8 @@ public class SinglyLinkedList{
      */
     public ListNode getNodeAtIndex(int ind)
     {
+        if(first==null)
+            return null;
         ListNode n = first;
         for(int i=0;i<ind;++i)
             n=n.getNext();
@@ -111,17 +123,15 @@ public class SinglyLinkedList{
      *     
      *     insert the newly created ListNOde at Front of List
      */
-    public void addFirst(Object value)
-    {
-        /*     add your code here   */;
+    public void addFirst(Object value){
+        add(0,value);
     }
 
     /*
      *     return the Object stored in the first ListNOde
      */
-    public Object getFirst()
-    {
-        return new Object();
+    public Object getFirst(){
+        return get(0);
     }
 
     /*
@@ -129,17 +139,15 @@ public class SinglyLinkedList{
      *     
      *     insert the newly created ListNOde at End of List
      */
-    public void addLast(Object value)
-    {
-        /*     add your code here   */;
+    public void addLast(Object value){
+        add(size(),value);
     }
 
     /*
      *     return the Object stored in the last ListNOde
      */
-    public Object getLast()
-    {
-        return new Object();
+    public Object getLast(){
+        return get(size()-1);
     }
 
     //  return the object previously at index ind.
@@ -148,7 +156,9 @@ public class SinglyLinkedList{
     //                size() > 0
     public Object set(int ind, Object obj)
     {
-        return new Object();
+        Object o = get(ind);
+        getNodeAtIndex(ind).setValue(obj);
+        return o;
     }
 
     /*
@@ -160,7 +170,9 @@ public class SinglyLinkedList{
      */
     public ListNode getMiddleNode()
     {
-        return new ListNode(null, null);
+        if(first==null)
+            return null;
+        return getNodeAtIndex(size()/2);
     }
 
     /*
@@ -187,9 +199,13 @@ public class SinglyLinkedList{
      *                   
      *     postCondition  size has been decreased by 1
      */
-    public Object remove(int ind)
-    {
-        return new Object();
+    public Object remove(int ind){
+        Object o = get(ind);
+        if(ind==0)
+            first = first.getNext();
+        else
+            getNodeAtIndex(ind-1).setNext(getNodeAtIndex(ind+1));
+        return o;
     }
 
     /*
@@ -199,7 +215,14 @@ public class SinglyLinkedList{
      */
     public boolean remove(Object elem)
     {
-        return Math.random() > 0.5;
+        if(!contains(elem))
+            return false;
+        for(int i=0;i<size();++i)
+            if(get(i).equals(elem)){
+                remove(i);
+                break;
+            }
+        return true;
     }
 
     /*
@@ -209,7 +232,11 @@ public class SinglyLinkedList{
      */
     public boolean removeAll(Object elem)
     {
-        return Math.random() > 0.5;
+        if(!contains(elem))
+            return false;
+        while(contains(elem))
+            remove(elem);
+        return true;
     }
 
     /*
@@ -224,7 +251,11 @@ public class SinglyLinkedList{
      */
     public Object removeFirst()
     {
-        return new Object();
+        if(first==null)
+            return null;
+        Object o = getFirst();
+        remove(0);
+        return o;
     }
 
     /*
@@ -239,7 +270,11 @@ public class SinglyLinkedList{
      */
     public Object removeLast()
     {
-        return new Object();
+        if(first==null)
+            return null;
+        Object o = getLast();
+        remove(size()-1);
+        return o;
     }
 
     /*
@@ -280,7 +315,19 @@ public class SinglyLinkedList{
      *     i.e., ascending order insert
      *     
      */    
-    public void inOrderInsert(Comparable c) {
-        /*   add your code here   */;
+    public void inOrderInsert(Comparable c){
+        if(first==null)
+            first = new ListNode(c,null);
+        ListNode n = first;
+        int i=0;
+        while(((Comparable)n.getValue()).compareTo(c)<0){
+            n=n.getNext();
+            if(n==null){
+                addLast(c);
+                return;
+            }
+            ++i;
+        }
+        add(i,c);
     }
 }
