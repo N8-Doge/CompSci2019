@@ -1,35 +1,19 @@
-/**
- * lab goals:        - Learn all about "do it yourself" linked lists
- *                   - Have a lot of fun looking at the bright colors red and green!
- *
- * class invariant: elements stored in the list are all of the same type.
- */
 import java.util.*;
 import java.lang.*;
 
-public class SinglyLinkedList
-{
+public class SinglyLinkedList{
     private ListNode first;
 
-    public SinglyLinkedList()
-    {
+    public SinglyLinkedList(){
         first = null;
     }
-
-    /*
-     * 
-     *          BEGIN METHODS FOR PART A !!!!!!!!
-     * 
-     * 
-     */
     
     /*
      *    returns a string of the form:  [obj.toString(), obj.toString(), obj.toString(), ..., obj.toString()]
      *
      *    returns  [] if the List is empty
      */    
-    public String toString()
-    {
+    public String toString(){
         return "[]";
     }
 
@@ -39,9 +23,10 @@ public class SinglyLinkedList
      *     
      *     preCondition: 0 <= ind <= size()
      */
-    public void add(int ind, Object obj)
-    {
-        /*   add your code her     */
+    public void add(int ind, Object obj){
+        if(ind==0)
+            first=new ListNode(obj,null);
+        getNodeAtIndex(ind-1).setNext(new ListNode(obj,getNodeAtIndex(ind)));
     }
 
     /*
@@ -50,9 +35,8 @@ public class SinglyLinkedList
      *     preCondition: 0 <= ind < size()
      *                   if list is empty return null
      */
-    public Object get(int ind)
-    {
-        return new Object();
+    public Object get(int ind){
+        return getNodeAtIndex(ind).getValue();
     }
 
     /*
@@ -63,7 +47,10 @@ public class SinglyLinkedList
      */
     public ListNode getNodeAtIndex(int ind)
     {
-        return new ListNode(null, null);
+        ListNode n = first;
+        for(int i=0;i<ind;++i)
+            n=n.getNext();
+        return n;
     }
 
     /*
@@ -73,7 +60,13 @@ public class SinglyLinkedList
      */
     public int size()
     {
-        return -1;
+        ListNode n = first;
+        int r=0;
+        while(n!=null){
+            n=n.getNext();
+            ++r;
+        }
+        return r;
     }
 
     /*
@@ -83,7 +76,10 @@ public class SinglyLinkedList
      */
     public boolean contains(Object o)
     {
-        return Math.random() > 0.5;
+        for(int i=0;i<size();++i)
+            if(getNodeAtIndex(i).getValue().equals(o))
+                return true;
+        return false;
     }
 
     /*
@@ -93,7 +89,7 @@ public class SinglyLinkedList
      */
     public boolean isEmpty()
     {
-        return Math.random() > 0.5;
+        return size()==0;
     }
 
     /*
@@ -102,7 +98,6 @@ public class SinglyLinkedList
      * 
      * 
      */
-
 
     /*
      * 
@@ -175,7 +170,6 @@ public class SinglyLinkedList
      * 
      */
 
-
     /*
      * 
      *          BEGIN METHODS FOR PART 3 !!!!!!!!
@@ -233,7 +227,7 @@ public class SinglyLinkedList
         return new Object();
     }
 
-/*
+    /*
      *    if ( size() > 0) 
      *        returns Object stored in first ListNode (use getValue()) in the List
      *        AND removes that node from the List
@@ -277,15 +271,15 @@ public class SinglyLinkedList
         /*   add your code here   */
     }
 
-/*
- *     insert new ListNode(c)
- *     
- *     such that get(n).getValue().compareTo(c) > 0
- *     with smallest n available
- *     
- *     i.e., ascending order insert
- *     
- */    
+    /*
+     *     insert new ListNode(c)
+     *     
+     *     such that get(n).getValue().compareTo(c) > 0
+     *     with smallest n available
+     *     
+     *     i.e., ascending order insert
+     *     
+     */    
     public void inOrderInsert(Comparable c) {
         /*   add your code here   */;
     }
