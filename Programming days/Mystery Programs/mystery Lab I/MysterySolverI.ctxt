@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.params=input
-comment0.target=String\ mystery1(String)
+comment0.target=java.lang.String\ mystery1(java.lang.String)
 comment1.params=input
-comment1.target=String\ mystery2(String)
+comment1.target=java.lang.String\ mystery2(java.lang.String)
 comment2.params=input
-comment2.target=String\ mystery3(String)
+comment2.target=java.lang.String\ mystery3(java.lang.String)
 comment3.params=input
-comment3.target=String\ mystery4(String)
+comment3.target=java.lang.String\ mystery4(java.lang.String)
 comment4.params=input
-comment4.target=String\ mystery5(String)
+comment4.target=java.lang.String\ mystery5(java.lang.String)
 numComments=5
