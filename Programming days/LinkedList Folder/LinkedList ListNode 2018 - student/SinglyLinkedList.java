@@ -7,12 +7,10 @@ public class SinglyLinkedList{
     public SinglyLinkedList(){
         first = null;
     }
-    
-    /*
-     *    returns a string of the form:  [obj.toString(), obj.toString(), obj.toString(), ..., obj.toString()]
-     *
-     *    returns  [] if the List is empty
-     */    
+
+    /**
+     * Every object as string and wrapped in brackets
+     */
     public String toString(){
         String s = "[";
         for(int i=0;i<size();++i)
@@ -22,11 +20,8 @@ public class SinglyLinkedList{
         return s+"]";
     }
 
-    /*    insert obj at index ind, shift all previous objects to the next higher index
-     *     e.g., list before: [1, 2, 3, 4]
-     *     list.add(2, 11) modifies list to [1, 2, 11, 3, 4]
-     *     
-     *     preCondition: 0 <= ind <= size()
+    /**
+     * Inserts object to list at location
      */
     public void add(int ind, Object obj){
         if(first==null)
@@ -37,11 +32,8 @@ public class SinglyLinkedList{
             getNodeAtIndex(ind-1).setNext(new ListNode(obj,getNodeAtIndex(ind)));
     }
 
-    /*
-     *     return a referrence (not the object) to the obj at index ind.
-     *     list is not modified!
-     *     preCondition: 0 <= ind < size()
-     *                   if list is empty return null
+    /**
+     * Gets object at index
      */
     public Object get(int ind){
         if(first==null)
@@ -49,11 +41,8 @@ public class SinglyLinkedList{
         return getNodeAtIndex(ind).getValue();
     }
 
-    /*
-     *     return a referrence to the ListNode (not the object or Value) at index ind.
-     *     list is not modified!
-     *     preCondition: 0 <= ind < size()
-     *                   if list is empty return null
+    /**
+     * Gets node at index
      */
     public ListNode getNodeAtIndex(int ind)
     {
@@ -65,10 +54,8 @@ public class SinglyLinkedList{
         return n;
     }
 
-    /*
-     *    returns the number of elements in the List
-     *    
-     *    returns zero if the List is empty
+    /**
+     * # of elements in list
      */
     public int size()
     {
@@ -81,10 +68,8 @@ public class SinglyLinkedList{
         return r;
     }
 
-    /*
-     *    returns true if a ListNode in List is equal ( getValue().equals( o ) == true) 
-     *    
-     *    returns false otherwise
+    /**
+     * If list contains object
      */
     public boolean contains(Object o)
     {
@@ -94,66 +79,45 @@ public class SinglyLinkedList{
         return false;
     }
 
-    /*
-     *    returns true if the size of the List is 0
-     *    
-     *    Returns false otherwise
+    /**
+     * If list has no elements
      */
     public boolean isEmpty()
     {
         return size()==0;
     }
 
-    /*
-     * 
-     *          END OF METHODS FOR PART A !!!!!!!!
-     * 
-     * 
-     */
-
-    /*
-     * 
-     *          BEGIN METHODS FOR PART B !!!!!!!!
-     * 
-     * 
-     */
-
-    /*
-     *     Creates a ListNOde containing value
-     *     
-     *     insert the newly created ListNOde at Front of List
+    /**
+     * Adds object to the front of list
      */
     public void addFirst(Object value){
         add(0,value);
     }
 
-    /*
-     *     return the Object stored in the first ListNOde
+    /**
+     * Gets object at front of list
      */
     public Object getFirst(){
         return get(0);
     }
 
-    /*
-     *     Creates a ListNOde containing value
-     *     
-     *     insert the newly created ListNOde at End of List
+    /**
+     * Adds object to end of list
      */
     public void addLast(Object value){
         add(size(),value);
     }
 
-    /*
-     *     return the Object stored in the last ListNOde
+    /**
+     * Gets object at end of list
      */
     public Object getLast(){
         return get(size()-1);
     }
 
-    //  return the object previously at index ind.
-    //  replace that value with obj!
-    //  preCondition: 0 < ind < size()
-    //                size() > 0
+    /**
+     * Sets object at index, returns former value
+     */
     public Object set(int ind, Object obj)
     {
         Object o = get(ind);
@@ -161,12 +125,9 @@ public class SinglyLinkedList{
         return o;
     }
 
-    /*
-     *     return a reference to the middle ListNode
-     *     
-     *     That is, the Listnode at index = size() / 2   (remember to use integer Math - truncate/round down
-     *     
-     *     if size() == 0 return null
+    /**
+     * Returns object in the middle of the list
+     * Uses int division to find middle
      */
     public ListNode getMiddleNode()
     {
@@ -175,29 +136,8 @@ public class SinglyLinkedList{
         return getNodeAtIndex(size()/2);
     }
 
-    /*
-     * 
-     *          END OF METHODS FOR PART 2 !!!!!!!!
-     * 
-     * 
-     */
-
-    /*
-     * 
-     *          BEGIN METHODS FOR PART 3 !!!!!!!!
-     * 
-     * 
-     */
-
-    /*
-     *     return the object at index ind.
-     *     
-     *     deletes the ListNode at index = ind
-     *     
-     *     preCondition: 0 <= ind < size()
-     *                   0 < size()
-     *                   
-     *     postCondition  size has been decreased by 1
+    /**
+     * Removes value at index, returns removed value
      */
     public Object remove(int ind){
         Object o = get(ind);
@@ -208,10 +148,9 @@ public class SinglyLinkedList{
         return o;
     }
 
-    /*
-     *     deletes the first (at smallest index) ListNode in the List such that .getValue().equals(elem) and return true
-     * 
-     *     if no ListNode contains elem, return false and do NOT modify the List
+    /**
+     * Deletes first instance of value
+     * Returns false if nothing deleted
      */
     public boolean remove(Object elem)
     {
@@ -221,14 +160,13 @@ public class SinglyLinkedList{
             if(get(i).equals(elem)){
                 remove(i);
                 break;
-            }
+        }
         return true;
     }
 
-    /*
-     *     deletes all ListNode in the List such that .getValue().equals(elem) and return true
-     * 
-     *     if no ListNode contains elem, return false and do NOT modify the List
+    /**
+     * Removes all of value from list
+     * Returns false if nothing deleted
      */
     public boolean removeAll(Object elem)
     {
@@ -239,15 +177,9 @@ public class SinglyLinkedList{
         return true;
     }
 
-    /*
-     *    if ( size() > 0) 
-     *        returns Object stored in first ListNode (use getValue()) in the List
-     *        AND removes that node from the List
-     *    
-     *        postondtion:  size() has been decresed by 1
-     *        
-     *     otherwise  (size() == 0)
-     *       return null
+    /**
+     * Removes and returns the first object in list
+     * If list was empty returns null
      */
     public Object removeFirst()
     {
@@ -258,15 +190,9 @@ public class SinglyLinkedList{
         return o;
     }
 
-    /*
-     *    if ( size() > 0) 
-     *        returns Object stored in first ListNode (use getValue()) in the List
-     *        AND removes that node from the List
-     *    
-     *        postondtion:  size() has been decresed by 1
-     *        
-     *     otherwise  (size() == 0)
-     *       return null
+    /**
+     * Removes and returns the last object in list
+     * If list was empty returns null
      */
     public Object removeLast()
     {
@@ -276,20 +202,6 @@ public class SinglyLinkedList{
         remove(size()-1);
         return o;
     }
-
-    /*
-     * 
-     *          END OF METHODS FOR PART 3 !!!!!!!!
-     * 
-     * 
-     */
-
-    /*
-     * 
-     *          BEGIN METHODS FOR EXTRA CREDIT !!!!!!!!
-     * 
-     * 
-     */
 
     /*
      *   contents of the List have been reversed
@@ -303,31 +215,37 @@ public class SinglyLinkedList{
      */
     public void reverse()
     {
-        /*   add your code here   */
+        if(size()<=1)
+            return;
+        ListNode n = new ListNode(null,null);
+        for(int i=size()-1;i>=0;--i){
+            n.setValue(get(i));
+            if(i!=0){
+                n.setNext(new ListNode(null,null));
+                n=n.getNext();
+            }
+        }
+        first=n;
     }
 
-    /*
-     *     insert new ListNode(c)
-     *     
-     *     such that get(n).getValue().compareTo(c) > 0
-     *     with smallest n available
-     *     
-     *     i.e., ascending order insert
-     *     
-     */    
+    /**
+     * Inserts the items in ascending order
+     */
     public void inOrderInsert(Comparable c){
         if(first==null)
             first = new ListNode(c,null);
-        ListNode n = first;
-        int i=0;
-        while(((Comparable)n.getValue()).compareTo(c)<0){
-            n=n.getNext();
-            if(n==null){
-                addLast(c);
-                return;
+        else{
+            ListNode n = first;
+            int i=0;
+            while(((Comparable)n.getValue()).compareTo(c)<0){
+                if(n.getNext()==null){
+                    addLast(c);
+                    return;
+                }
+                n=n.getNext();
+                ++i;
             }
-            ++i;
+            add(i,c);
         }
-        add(i,c);
     }
 }
