@@ -40,20 +40,26 @@ public class MysterySolverI implements MysterySolverInterfaceI
         Stack<Integer> s = new Stack<Integer>();
         String str = new String();
         while(strTok.hasMoreTokens())
-            s.push((Integer)Math.pow(Integer.parseInt(strTok.nextToken()),2));
+            s.push(Integer.parseInt(strTok.nextToken()));
         while(!s.empty())
-            str+=Integer.toString(s.pop())+" ";
+            str+=""+(int)Math.pow(s.pop(),2)+" ";
         return str.substring(0,str.length()-1);
     }
 
     public String mystery4(String input)
     {
         StringTokenizer strTok = new StringTokenizer(input);
-        /*  Stack<?????> s = new Stack<??????>();
-        Queue<?????> q = new LinkedList<?????>();
-        plus one other Object
-         */     
-        return "";
+        Stack<Integer> s = new Stack<Integer>();
+        Queue<Integer> q = new LinkedList<Integer>();
+        String r = new String();
+        while(strTok.hasMoreTokens())
+            s.push(Integer.parseInt(strTok.nextToken()));
+        while(!s.empty()){
+            q.add(s.pop());
+        }
+        while(!q.empty())
+            r+=""+q.poll()+" ";
+        return r.substring(0,str.length()-1);
     }
 
     public String mystery5(String input)
