@@ -27,11 +27,21 @@ public class MysterySolverI implements MysterySolverInterfaceI
     public String mystery2(String input)
     {
         StringTokenizer strTok = new StringTokenizer(input);
-        /*  Stack<?????> s = new Stack<??????>();
-        Queue<?????> q = new LinkedList<?????>();
-        plus one other Object
-         */     
-        return "";
+        Stack<Integer> s = new Stack<Integer>();
+        Queue<Integer> q = new LinkedList<Integer>();
+        String str = new String();
+        while(strTok.hasMoreTokens()){
+            Integer i = Integer.parseInt(strTok.nextToken());
+            if(i%2==1)
+                s.push(i);
+            else
+                q.add(i);
+        }
+        while(!s.empty())
+            str+=s.pop()+" ";
+        while(q.size()!=0)
+            str+=q.poll()+" ";
+        return str.substring(0,str.length()-1);
     }
 
     public String mystery3(String input)
@@ -41,8 +51,11 @@ public class MysterySolverI implements MysterySolverInterfaceI
         String str = new String();
         while(strTok.hasMoreTokens())
             s.push(Integer.parseInt(strTok.nextToken()));
-        while(!s.empty())
-            str+=""+(int)Math.pow(s.pop(),2)+" ";
+        while(!s.empty()){
+            Integer i = new Integer(s.pop());
+            i*=i;
+            str+=""+i+" ";
+        }
         return str.substring(0,str.length()-1);
     }
 
@@ -52,14 +65,16 @@ public class MysterySolverI implements MysterySolverInterfaceI
         Stack<Integer> s = new Stack<Integer>();
         Queue<Integer> q = new LinkedList<Integer>();
         String r = new String();
+        Integer i = new Integer(1);
         while(strTok.hasMoreTokens())
-            s.push(Integer.parseInt(strTok.nextToken()));
-        while(!s.empty()){
-            q.add(s.pop());
+            q.add(Integer.parseInt(strTok.nextToken()));
+        while(q.size()!=0){
+            i*=q.poll();
+            s.push(i);
         }
-        //while(!q.empty())
-            //r+=""+q.poll()+" ";
-        return r.substring(0,r.length()-1);
+        while(!s.empty())
+            r+=" "+s.pop();
+        return r.substring(1);
     }
 
     public String mystery5(String input)
@@ -68,7 +83,7 @@ public class MysterySolverI implements MysterySolverInterfaceI
         Stack<Integer> s = new Stack<Integer>();
         Queue<Integer> q = new LinkedList<Integer>();
         String r = new String();
-        int i=1;
+        Integer i = new Integer(1);
         while(strTok.hasMoreTokens())
             q.add(Integer.parseInt(strTok.nextToken()));
         while(q.size()!=0){
