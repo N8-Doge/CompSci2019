@@ -57,18 +57,26 @@ public class MysterySolverI implements MysterySolverInterfaceI
         while(!s.empty()){
             q.add(s.pop());
         }
-        while(!q.empty())
-            r+=""+q.poll()+" ";
-        return r.substring(0,str.length()-1);
+        //while(!q.empty())
+            //r+=""+q.poll()+" ";
+        return r.substring(0,r.length()-1);
     }
 
     public String mystery5(String input)
     {
         StringTokenizer strTok = new StringTokenizer(input);
-        /*  Stack<?????> s = new Stack<??????>();
-        Queue<?????> q = new LinkedList<?????>();
-        plus one other Object
-         */     
-        return "";
+        Stack<Integer> s = new Stack<Integer>();
+        Queue<Integer> q = new LinkedList<Integer>();
+        String r = new String();
+        int i=1;
+        while(strTok.hasMoreTokens())
+            q.add(Integer.parseInt(strTok.nextToken()));
+        while(q.size()!=0){
+            i*=q.poll();
+            s.push(i);
+        }
+        while(!s.empty())
+            r=""+s.pop()+" "+r;
+        return r.substring(0,r.length()-1);
     }
 }

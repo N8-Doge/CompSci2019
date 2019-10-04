@@ -39,7 +39,7 @@ public class StudentSample_1 extends junit.framework.TestCase
 	{
 		MysterySolverI obj=new MysterySolverI();
 		String problemMsg="Problem with: mystery5";
-		String input="1 2 3                      4 5";
+		String input="1 2 3 4 5";
 		assertEquals(problemMsg, "1 2 6 24 120", obj.mystery5(input));
 	}
 }
