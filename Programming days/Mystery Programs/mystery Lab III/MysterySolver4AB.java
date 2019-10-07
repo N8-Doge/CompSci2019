@@ -7,7 +7,7 @@ Queue<?????> q = new LinkedList<?????>();
 plus one other Object
 
 plus a String only to return the result
- */  	
+ */     
 
 public class MysterySolver4AB implements MysterySolverInterface4AB
 {
@@ -24,7 +24,7 @@ public class MysterySolver4AB implements MysterySolverInterface4AB
         /*  Stack<?????> s = new Stack<??????>();
         Queue<?????> q = new LinkedList<?????>();
         plus one other Object
-         */  	
+         */     
         return "";
     }
 
@@ -34,7 +34,7 @@ public class MysterySolver4AB implements MysterySolverInterface4AB
         /*  Stack<?????> s = new Stack<??????>();
         Queue<?????> q = new LinkedList<?????>();
         plus one other Object
-         */  	
+         */     
         return "";
     }
 
@@ -44,18 +44,39 @@ public class MysterySolver4AB implements MysterySolverInterface4AB
         /*  Stack<?????> s = new Stack<??????>();
         Queue<?????> q = new LinkedList<?????>();
         plus one other Object
-         */  	
+         */     
         return "";
     }
 
     public String mysteryS(String input)
     {
         StringTokenizer strTok = new StringTokenizer(input);
-        /*  Stack<?????> s = new Stack<??????>();
-        Queue<?????> q = new LinkedList<?????>();
-        plus one other Object
-         */  	
-        return "";
+        Queue<Integer> q = new LinkedList<Integer>();
+        String str = new String();
+        Integer i = Integer.parseInt(strTok.nextToken());
+        q.add(i);
+        while(strTok.hasMoreTokens()){
+            int n = Integer.parseInt(strTok.nextToken());
+            if(n<i)
+                i=n;
+            boolean b = true;
+            while(b){
+                if(n<q.peek()){
+                    q.add(n);
+                    b=false;
+                }
+                else
+                    q.add(q.poll());
+            }
+            System.out.println("I have successfully added "+n);
+            while(q.peek()!=i)
+                q.add(q.poll());
+            System.out.println("Reset order");
+        }
+        while(q.size()!=0){
+            str += Integer.toString(q.poll())+" ";
+        }
+        return str.substring(0,str.length()-1);
     }  
 
     /*
@@ -72,7 +93,7 @@ public class MysterySolver4AB implements MysterySolverInterface4AB
         /*  Stack<?????> s = new Stack<??????>();
         Queue<?????> q = new LinkedList<?????>();
         plus one other Object
-         */  	
+         */     
         return "";
     }
 
@@ -93,7 +114,7 @@ public class MysterySolver4AB implements MysterySolverInterface4AB
         /*  Stack<?????> s = new Stack<??????>();
         Queue<?????> q = new LinkedList<?????>();
         plus one other Object
-         */  	
+         */     
         return "";
     }
 }
