@@ -1,12 +1,14 @@
 #BlueJ class context
-comment0.params=input
-comment0.target=java.lang.String\ mystery6(java.lang.String)
+comment0.target=MysterySolverII
+comment0.text=\ \ \ \ for\ all\ methods\ -\ you\ get\ \r\nStringTokenizer\ strTok\ \=\ new\ StringTokenizer(input);\r\nStack<?????>\ s\ \=\ new\ Stack<??????>();\r\nQueue<?????>\ q\ \=\ new\ LinkedList<?????>();\r\nplus\ one\ other\ Object\r\n\r\nplus\ a\ String\ only\ to\ return\ the\ result\r\n
 comment1.params=input
-comment1.target=java.lang.String\ mystery7(java.lang.String)
+comment1.target=java.lang.String\ mystery6(java.lang.String)
 comment2.params=input
-comment2.target=java.lang.String\ mystery8(java.lang.String)
+comment2.target=java.lang.String\ mystery7(java.lang.String)
 comment3.params=input
-comment3.target=java.lang.String\ mystery9(java.lang.String)
+comment3.target=java.lang.String\ mystery8(java.lang.String)
 comment4.params=input
-comment4.target=java.lang.String\ mysteryF(java.lang.String)
-numComments=5
+comment4.target=java.lang.String\ mystery9(java.lang.String)
+comment5.params=input
+comment5.target=java.lang.String\ mysteryF(java.lang.String)
+numComments=6
