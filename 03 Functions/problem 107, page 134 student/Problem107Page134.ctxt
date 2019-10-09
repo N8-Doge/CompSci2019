@@ -1,5 +1,9 @@
 #BlueJ class context
-comment0.params=year
-comment0.target=java.lang.String[]\ findFriday13(int)
-comment0.text=\r\n\ \ returns\ an\ array\ of\ all\ months\ with\ a\ Friday\ the\ 13th\ in\ Calendar\ order\r\n\ \ \ \ \ \ \ \ Use\ the\ following\ Strings\ for\ each\ Month\r\n\ \ \ \ \ \ \ \ "Jan",\ "Feb",\ "March",\ "April",\ "May",\ "June",\ "July",\ "Aug",\ "Sept",\ "Oct",\ "Nov",\ "Dec"\r\n
-numComments=1
+comment0.target=Problem107Page134
+comment0.text=\r\n\ Friday\ the\ 13.\r\n\ \r\n\ Discrete\ Math\r\n\ Problem\ 107,\ page\ 134\r\n\r\n\ @author\ \ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=year
+comment1.target=java.lang.String[]\ findFriday13(int)
+comment1.text=\r\n\ \ returns\ an\ array\ of\ all\ months\ with\ a\ Friday\ the\ 13th\ in\ Calendar\ order\r\n\ \ \ \ \ \ \ \ Use\ the\ following\ Strings\ for\ each\ Month\r\n\ \ \ \ \ \ \ \ "Jan",\ "Feb",\ "March",\ "April",\ "May",\ "June",\ "July",\ "Aug",\ "Sept",\ "Oct",\ "Nov",\ "Dec"\r\n
+comment2.params=months
+comment2.target=java.lang.String[]\ m(int[])
+numComments=3
