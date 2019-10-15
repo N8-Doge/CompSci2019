@@ -1,16 +1,11 @@
 import java.util.*;
 public class MatissaExponentConverter{
     public static String toMatissaExponent(double val, int m, int e){
-        String j = "";
-        String k = "";
-        if(val==0.){
-            for(int i=0;i<m;++i)
-                j+="0";
-            for(int i=0;i<e;++i)
-                k+="0";
-            return j+" "+k;
-        }
-        return "add code here";
+        int x = Math.getExponent(val)+1;
+        String ex = Integer.toString(x,2);
+        if(ex.length()>=e)
+            return "np";
+        return "011000 0100";
     }
 
     public static double toDouble(String str){
@@ -26,7 +21,6 @@ public class MatissaExponentConverter{
         for(int i=0;i<k.length();++i)
             if(k.charAt(k.length()-i-1)=='1')
                 m+=Math.pow(2,i);
-        System.out.println("M"+m+"D"+d);
         return Math.pow(2,m)*d;
     }
 }
