@@ -5,6 +5,20 @@ public class MatissaExponentConverter{
         String ex = Integer.toString(x,2);
         if(ex.length()>=e)
             return "np";
+        double v = Math.abs(val);
+        double b = 1;
+        while(b<v)
+            b*=2;
+        String mn = new String();
+        while(v!=0)
+            
+        if(val<0)
+            ex="1"+ex;
+        else if (val>0)
+            ex="0"+ex;
+        else
+            for(int i=0;i<e;++i)
+                ex+="0";
         return "011000 0100";
     }
 
