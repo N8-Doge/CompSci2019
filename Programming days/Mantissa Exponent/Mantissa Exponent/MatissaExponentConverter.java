@@ -3,23 +3,38 @@ public class MatissaExponentConverter{
     public static String toMatissaExponent(double val, int m, int e){
         int x = Math.getExponent(val)+1;
         String ex = Integer.toString(x,2);
+        String mn = "0";
         if(ex.length()>=e)
             return "np";
-        double v = Math.abs(val);
-        double b = 1;
-        while(b<v)
-            b*=2;
-        String mn = new String();
-        while(v!=0)
-            
-        if(val<0)
+        if(val==0.)
+            for(int i=1;i<e;++i)
+                mn+="0";
+        else{
+            double v = Math.abs(val);
+            double b = 1;
+            while(b<v)
+                b*=2;
+            while(v>0){
+                if(v>b){
+                    mn+="1";
+                    v-=b;
+                }
+                else
+                    mn+="0";
+                b/=2;
+                System.out.println(""+v);
+            }
+            if(mn.length()>m)
+                return "np";
+        }
+        if(val<0.)
             ex="1"+ex;
-        else if (val>0)
+        else if (val>0.)
             ex="0"+ex;
         else
             for(int i=0;i<e;++i)
                 ex+="0";
-        return "011000 0100";
+        return mn+" "+ex;
     }
 
     public static double toDouble(String str){
