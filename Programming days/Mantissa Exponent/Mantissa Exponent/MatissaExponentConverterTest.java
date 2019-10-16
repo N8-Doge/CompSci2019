@@ -7,6 +7,7 @@ public class MatissaExponentConverterTest extends junit.framework.TestCase
         assertEquals("np", MatissaExponentConverter.toMatissaExponent(128.+64.+16.+8.+2., 6, 4));
         assertEquals("np", MatissaExponentConverter.toMatissaExponent(16.+8.+2.+1., 6, 3));
         assertEquals("0101110100 000101", MatissaExponentConverter.toMatissaExponent(23.25, 10, 6));
+        assertEquals("00000 00000", MatissaExponentConverter.toMatissaExponent(0,5,5));
     }
 
     public void testToDouble01()

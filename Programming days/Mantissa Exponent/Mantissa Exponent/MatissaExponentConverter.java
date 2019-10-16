@@ -1,39 +1,31 @@
 import java.util.*;
 public class MatissaExponentConverter{
     public static String toMatissaExponent(double val, int m, int e){
-        int x = Math.getExponent(val)+1;
+        int x = (val==0.)? 0 : Math.getExponent(val)+1;
         String ex = Integer.toString(x,2);
-        String mn = "0";
         if(ex.length()>=e)
             return "np";
-        if(val==0.)
-            for(int i=1;i<e;++i)
-                mn+="0";
-        else{
-            double v = Math.abs(val);
-            double b = 1;
-            while(b<v)
-                b*=2;
-            while(v>0){
-                if(v>b){
-                    mn+="1";
-                    v-=b;
-                }
-                else
-                    mn+="0";
-                b/=2;
-                System.out.println(""+v);
+        double v = Math.abs(val);
+        double b = 1;
+        String mn = "";
+        while(b<v)
+            b*=2;
+        while(v>=0.01){
+            b/=2;
+            if(v>=b){
+                mn+="1";
+                v-=b;
             }
-            if(mn.length()>m)
-                return "np";
+            else
+                mn+="0";
         }
-        if(val<0.)
-            ex="1"+ex;
-        else if (val>0.)
+        if(mn.length()>m)
+            return "np";
+        while(mn.length()<m-1)
+            mn+="0";
+        while(ex.length()<e)
             ex="0"+ex;
-        else
-            for(int i=0;i<e;++i)
-                ex+="0";
+        mn = (val<0.)? "1"+mn : "0"+mn;
         return mn+" "+ex;
     }
 
