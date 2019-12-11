@@ -1,9 +1,8 @@
 #BlueJ class context
-comment0.target=DigitalEgyptianFraction
-comment1.params=b
-comment1.target=DigitalEgyptianFraction(int)
-comment2.params=efs
-comment2.target=Fraction\ addAllDigitalEgyptianFractionsInList(java.util.List)
-comment3.params=f
-comment3.target=java.util.List\ getListOfDigitalEgyptianFractions(Fraction)
-numComments=4
+comment0.params=b
+comment0.target=DigitalEgyptianFraction(int)
+comment1.params=efs
+comment1.target=Fraction\ addAllDigitalEgyptianFractionsInList(java.util.List)
+comment2.params=f
+comment2.target=java.util.List\ getListOfDigitalEgyptianFractions(Fraction)
+numComments=3

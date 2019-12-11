@@ -10,17 +10,19 @@ public class ArrayQueue{
     }
 
     public void enqueue(String item){
-        if(size==myQueue.length-1){
-            String[] nq = new String[size*2];
+        if(back==myQueue.length){
+            String[] n = new String[size*2];
             for(int i=0;i<myQueue.length;++i)
-                nq[i]=myQueue[i];
-            myQueue=nq;
+                n[i]=myQueue[i];
+            myQueue=n;
         }
         myQueue[back++]=item;
         size++;
     }
 
     public String dequeue(){
+        if(size==0)
+            return "";
         size--;
         return myQueue[front++];
     }

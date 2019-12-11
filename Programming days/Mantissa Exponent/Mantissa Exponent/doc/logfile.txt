@@ -1,0 +1,32 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files (x86)\Java\jdk1.7.0_03\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.7
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Users\800018542\Documents\CompSci2019\Programming days\Mantissa Exponent\Mantissa Exponent
+-d
+C:\Users\800018542\Documents\CompSci2019\Programming days\Mantissa Exponent\Mantissa Exponent\doc
+-encoding
+windows-1252
+-charset
+windows-1252
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\800018542\Documents\CompSci2019\Programming days\Mantissa Exponent\Mantissa Exponent\MatissaExponentConverter.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\800018542\Documents\CompSci2019\Programming days\Mantissa Exponent\Mantissa Exponent\MatissaExponentConverter.java...
+C:\Users\800018542\Documents\CompSci2019\Programming days\Mantissa Exponent\Mantissa Exponent\MatissaExponentConverter.java:18: error: ';' expected
+                System.out.println(b.toString()+" and "+v.toString())
+                                                                     ^
+1 error

@@ -1,4 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ testArrayQueue01()
-numComments=1
+comment0.target=ArrayQueueStudentTest
+comment0.text=\r\nimport\ java.util.*;\r\n\r\n/**\r\n\ @author\ \ Don\ Allen\r\n
+comment1.params=
+comment1.target=void\ testArrayQueue01()
+numComments=2

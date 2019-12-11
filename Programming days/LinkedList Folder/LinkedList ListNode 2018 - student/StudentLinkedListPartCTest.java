@@ -13,8 +13,8 @@ import java.lang.*;
  */
 public class StudentLinkedListPartCTest extends junit.framework.TestCase
 {
-	public void testPartc()
-	{
+    public void testPartc()
+    {
         SinglyLinkedList obj = new SinglyLinkedList();
         obj.addFirst("2");            // 2
         obj.addLast("-2");            // 2 -2
@@ -33,5 +33,5 @@ public class StudentLinkedListPartCTest extends junit.framework.TestCase
         obj.addLast("0");             // 0  -2 222 0
         assertEquals(true, obj.removeAll("0"));           // -2 222
         assertEquals("[-2, 222]", obj.toString());
-	}
+    }
 }

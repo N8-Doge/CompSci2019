@@ -218,11 +218,12 @@ public class SinglyLinkedList{
         if(size()<=1)
             return;
         ListNode n = new ListNode(null,null);
+        ListNode l = n;
         for(int i=size()-1;i>=0;--i){
-            n.setValue(get(i));
+            l.setValue(get(i));
             if(i!=0){
-                n.setNext(new ListNode(null,null));
-                n=n.getNext();
+                l.setNext(new ListNode(null,null));
+                l=l.getNext();
             }
         }
         first=n;
