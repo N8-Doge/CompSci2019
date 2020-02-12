@@ -1,225 +1,237 @@
-/*    implewment (almost) ALL the methods in this class.
- * 
- *    But first, you need to finish implementing the OrderedPair class
- *    
- *    The first tester provided test the OrderedPair class methods equals and hashCode
- *    which I believe are important methods that you may use or I use in the tester when I create
- *    a HashSet.  This tester method is only for your benefit as it is not included the stipulator tester.
- */
-
-
 import java.util.*;
 import java.lang.Math;
-/**
- *
- * @author  
- * @version (a version number or a date)
- */
-public class FunctionsChapter3Style
-{
+public class FunctionsChapter3Style{
+    private Set<OrderedPair> op;
 
-   public FunctionsChapter3Style(Set<String> d, Set<String> co)
-   {
-      /*   build your own constructor   */
-   }
+    public FunctionsChapter3Style(Set<String> d, Set<String> co){
+        Iterator id = d.iterator();
+        Iterator ico = co.iterator();
+        while(id.hasNext())
+            op.add(new OrderedPair(""+id.next(),""+ico.next()));
+    }
 
-   public FunctionsChapter3Style(Set<String> d, Set<String> co, Set<OrderedPair> r)
-   {
-      /*   build your own constructor   */
-   }
+    public FunctionsChapter3Style(Set<String> d, Set<String> co, Set<OrderedPair> r)
+    {
+        op=r;
+        Iterator id = d.iterator();
+        Iterator ico = co.iterator();
+        while(id.hasNext())
+            op.add(new OrderedPair(""+id.next(),""+ico.next()));
+    }
 
-/*
- *    Not test.
- *    
- *    I admit that I did use this method a couple of times.
- *    It came in very handy and SHORTEN my code and GREATLY simplified some methods
- *    I will let you figure out which ones and how
- *    
- *    returns a String of the form: [(a,b), (c,d), ...(v,w)]
- */
-   public String getRelString()
-   {
-      return "";
-   }
+    /*
+     *returns a String of the form: [(a,b), (c,d), ...(v,w)]
+     */
+    public String getRelString(){
+        String s = "[";
+        for(OrderedPair o:op)
+            s+=o.toString()+", ";
+        if(s.length()>1)
+            s=s.substring(s.length()-3);
+        return s+"]";
+    }
 
-/*
- *    replaces the current relation instance variable with op
- *    
- *    YES - this method gets used in the my (stipulator) tester
- */
-   public void setRelation(Set<OrderedPair> op)
-   {
-//      Add your own code
-   }
+    /*
+     *    replaces the current relation instance variable with op
+     *    
+     *    YES - this method gets used in the my (stipulator) tester
+     */
+    public void setRelation(Set<OrderedPair> op){
+        this.op=op;
+    }
 
-/*
- *    returns the current relation instance variable 
- */
-   public Set<OrderedPair> getRelation()
-   {  
-      return new HashSet<OrderedPair>();
-   }
+    /*
+     *    returns the current relation instance variable 
+     */
+    public Set<OrderedPair> getRelation(){  
+        return op;
+    }
 
-/*
- *    retruns the number of Order Pairs in the relation
- */
-   public int size()
-   {
-      return (int)(Math.random() * 9999);
-   }
+    /*
+     *    retruns the number of Order Pairs in the relation
+     */
+    public int size(){
+        return op.size();
+    }
 
-/*
- *    returns true if the array of Order Pairs forms a function
- *    returns false otherwise
- */
-   public boolean isFunction()
-   {
+    /*
+     *    returns true if the array of Order Pairs forms a function
+     *    returns false otherwise
+     */
+    public boolean isFunction(){
+        HashMap h = new HashMap<String,String>();
+        for(OrderedPair o:op)
+            if(h.put(o.getX(),o.getY())!=null)
+                return false;
+        return true;
+    }
 
-      return Math.random() < 0.5;
-   }
+    /* 
+     *    A function f from X to Y is said to be one to one if 
+     *    for each y in Y, there is at most one x in X with f(x) = y
+     *
+     *    returns true if array of order Pairs is a function and the function is one to one
+     *    returns false otherwise
+     */
+    public boolean isOneToOne(){
+        if(!isFunction())
+            return false;
+        HashMap h = new HashMap<String,String>();
+        for(OrderedPair o:op)
+            if(h.put(o.getY(),o.getX())!=null)
+                return false;
+        return true;
+    }
 
-/* 
- *    A function f from X to Y is said to be one to one if 
- *    for each y in Y, there is at most one x in X with f(x) = y
- *
- *    returns true if array of order Pairs is a function and the function is one to one
- *    returns false otherwise
- */
-   public boolean isOneToOne()
-   {
-      return Math.random() < 0.5;
-   }
+    /*
+     *    A function from X to Y is said to be onto if
+     *    the range of f == Y
+     *
+     *    returns true if array of order Pairs is a function and the function is onto
+     *    returns false otherwise
+     */
+    public boolean isOnTo(){
+        if(!isFunction())
+            return false;
+        ArrayList a = new ArrayList<Integer>();
+        for(OrderedPair o:op)
+            a.add(Integer.parseInt(o.getY()));
+        Collections.sort(a);
+        for(int i=1;i<a.size()-1;i++)
+            if((int)a.get(i)-(int)a.get(i-1)>0 || (int)a.get(i+1)-(int)a.get(i)>0)
+                return false;
+        return true;
+    }
 
-/*
- *    A function from X to Y is said to be onto if
- *    the range of f == Y
- *
- *    returns true if array of order Pairs is a function and the function is onto
- *    returns false otherwise
- */
-   public boolean isOnTo()
-   {
-      return Math.random() < 0.5;
-   }
+    /*
+     *     returns true if the array of order Pairs is a function and the function is bijective
+     *              that is both one to one and onto
+     *     returns false otherwise
+     */
+    public boolean isBijective()
+    {
+        return isOneToOne() && isOnTo();
+    }
 
-/*
- *     returns true if the array of order Pairs is a function and the function is bijective
- *              that is both one to one and onto
- *     returns false otherwise
- */
-   public boolean isBijective()
-   {
-      return isOneToOne() && isOnTo();
-   }
+    /*
+     *   precondition:  getRelation() and op (the parameter) are both functions.  
+     *                  Domain of op is a subset of coDomain of getRelation()
+     *   
+     *   returns a new FunctionsChapter3Style Object.
+     *   The domain of new FunctionsChapter3Style Object is this.domain
+     *   The coDomain is opCoDomain (the paramenter)
+     *   
+     *   The new function is the composition op( this.getRelation (this.domain) )
+     */
+    public FunctionsChapter3Style composition(Set<OrderedPair> op, Set<String> opCoDomain)
+    {
+        FunctionsChapter3Style ans = new FunctionsChapter3Style(opCoDomain, opCoDomain, new HashSet<OrderedPair>() );
 
-/*
- *   precondition:  getRelation() and op (the parameter) are both functions.  
- *                  Domain of op is a subset of coDomain of getRelation()
- *   
- *   returns a new FunctionsChapter3Style Object.
- *   The domain of new FunctionsChapter3Style Object is this.domain
- *   The coDomain is opCoDomain (the paramenter)
- *   
- *   The new function is the composition op( this.getRelation (this.domain) )
- */
-   public FunctionsChapter3Style composition(Set<OrderedPair> op, Set<String> opCoDomain)
-   {
-      FunctionsChapter3Style ans = new FunctionsChapter3Style(opCoDomain, opCoDomain, new HashSet<OrderedPair>() );
+        return ans;
+    }
 
-      return ans;
-   }
+    /*
+     *   precondition:  rel is a function.
+     *   rel does not have to be both 1-1 and onto
+     *   the inverse does not need to be a function
+     */
+    public OrderedPair[] getInverse()
+    {
+        OrderedPair[] ans = new OrderedPair[op.size()];
+        OrderedPair[] oparr = (OrderedPair[])((Set)op).toArray();
+        for(int i=0;i<op.size();i++)
+            ans[i]=new OrderedPair(oparr[i].getY(),oparr[i].getX());
+        return ans;
+    }
 
-/*
- *   precondition:  rel is a function.
- *   rel does not have to be both 1-1 and onto
- *   the inverse does not need to be a function
- */
-   public OrderedPair[] getInverse()
-   {
-      OrderedPair[] ans = new OrderedPair[10];
-      
-      return ans;
-   }
+    /*
+     * A relation is reflexive if (x, x) in R for every x in X
+     * 
+     *       returns true if the current relation is reflexive
+     *       returns false otherwise
+     */
+    public boolean isReflexive(){
+        HashSet h = new HashSet<String>();
+        for(OrderedPair o:op)
+            h.add(o.getX());
+        for(String s:(HashSet<String>)h)
+            if(!op.contains(new OrderedPair(s,s)))
+                return false;
+        return true;
+    }
 
-/*
- * A relation is reflexive if (x, x) in R for every x in X
- * 
- *       returns true if the current relation is reflexive
- *       returns false otherwise
- */
-   public boolean isReflexive()
-   {
+    /*
+     *       A relation is symmetric if
+     *       for all x, y in X, if (x,y) in R, then (y,x) in R
+     * 
+     *       returns true if the current relation is symmetric
+     *       returns false otherwise
+     */
+    public boolean isSymmetric()
+    {
+        for(OrderedPair o:op)
+            if(!op.contains(new OrderedPair(o.getY(),o.getX())))
+                return false;
+        return true;
+    }
 
-       return Math.random() < 0.5;
-   }
+    /*
+     *       A relation is Antisymmetric if
+     *       for all x, y in X, if (x,y) in R, and (y,x) in R, then x = y
+     * 
+     *    returns true if the current relation is Antisymmetric
+     *    returns false otherwise
+     */
+    public boolean isAntiSymmetric()
+    {
+        for(OrderedPair o:op)
+            if(op.contains(new OrderedPair(o.getY(),o.getX())))
+                if(!o.getX().equals(o.getY()))
+                    return false;
+        return true;
+    }
 
-/*
- *       A relation is symmetric if
- *       for all x, y in X, if (x,y) in R, then (y,x) in R
- * 
- *       returns true if the current relation is symmetric
- *       returns false otherwise
- */
-   public boolean isSymmetric()
-   {
+    /*
+     *       A relation is transitive:
+     *       if (a,b) and (b,c) then (a,c)
+     * 
+     *       returns true if the current relation is reflexive
+     *       returns false otherwise
+     */
+    public boolean isTransitive()
+    {
 
-       return Math.random() < 0.5;
-   }
+        return Math.random() < 0.5;
+    }
 
-/*
- *       A relation is Antisymmetric if
- *       for all x, y in X, if (x,y) in R, and (y,x) in R, then x = y
- * 
- *    returns true if the current relation is Antisymmetric
- *    returns false otherwise
- */
-   public boolean isAntiSymmetric()
-   {
+    /*
+     *    returns true is the relation is an Equivalence Relation
+     *    returns false otherwise
+     */
+    public boolean isEquivalenceRelation()
+    {
+        return isSymmetric() && isReflexive() && isTransitive();
+    }
 
-       return Math.random() < 0.5;
-   }
+    /*
+     * 
+     *    returns true is the relation is an Partially Order
+     *    returns false otherwise
+     */
+    public boolean isPartiallyOrder()
+    {
+        return isAntiSymmetric() && isReflexive() && isTransitive();
+    }
 
-/*
- *       A relation is transitive:
- *       if (a,b) and (b,c) then (a,c)
- * 
- *       returns true if the current relation is reflexive
- *       returns false otherwise
- */
-   public boolean isTransitive()
-   {
+    /*
+     *      not tested.
+     *      Not sure why it is here.  I think I needed/used this functionality more than once,
+     *      and therefore created a helper method
+     */
+    public ArrayList<OrderedPair> getRel(String s)
+    {
+        ArrayList<OrderedPair> ans = new ArrayList<OrderedPair>();
 
-       return Math.random() < 0.5;
-   }
-
-/*
- *    returns true is the relation is an Equivalence Relation
- *    returns false otherwise
- */
-   public boolean isEquivalenceRelation()
-   {
-      return isSymmetric() && isReflexive() && isTransitive();
-   }
-
-/*
- * 
- *    returns true is the relation is an Partially Order
- *    returns false otherwise
- */
-   public boolean isPartiallyOrder()
-   {
-      return isAntiSymmetric() && isReflexive() && isTransitive();
-   }
-
-/*
- *      not tested.
- *      Not sure why it is here.  I think I needed/used this functionality more than once,
- *      and therefore created a helper method
- */
-   public ArrayList<OrderedPair> getRel(String s)
-   {
-      ArrayList<OrderedPair> ans = new ArrayList<OrderedPair>();
-
-      return ans;
-   }
+        return ans;
+    }
 }
