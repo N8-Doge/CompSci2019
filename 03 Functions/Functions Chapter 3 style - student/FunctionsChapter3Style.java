@@ -2,21 +2,18 @@ import java.util.*;
 import java.lang.Math;
 public class FunctionsChapter3Style{
     private Set<OrderedPair> op;
+    private Set<String> d,co;
 
     public FunctionsChapter3Style(Set<String> d, Set<String> co){
-        Iterator id = d.iterator();
-        Iterator ico = co.iterator();
-        while(id.hasNext())
-            op.add(new OrderedPair(""+id.next(),""+ico.next()));
+        this.d=d;
+        this.co=co;
     }
 
     public FunctionsChapter3Style(Set<String> d, Set<String> co, Set<OrderedPair> r)
     {
+        this.d=d;
+        this.co=co;
         op=r;
-        Iterator id = d.iterator();
-        Iterator ico = co.iterator();
-        while(id.hasNext())
-            op.add(new OrderedPair(""+id.next(),""+ico.next()));
     }
 
     /*
@@ -93,12 +90,11 @@ public class FunctionsChapter3Style{
     public boolean isOnTo(){
         if(!isFunction())
             return false;
-        ArrayList a = new ArrayList<Integer>();
+        HashSet h = new HashSet<String>();
         for(OrderedPair o:op)
-            a.add(Integer.parseInt(o.getY()));
-        Collections.sort(a);
-        for(int i=1;i<a.size()-1;i++)
-            if((int)a.get(i)-(int)a.get(i-1)>0 || (int)a.get(i+1)-(int)a.get(i)>0)
+            h.add(o.getY());
+        for(String s:co)
+            if(!h.contains(s))
                 return false;
         return true;
     }
@@ -108,8 +104,7 @@ public class FunctionsChapter3Style{
      *              that is both one to one and onto
      *     returns false otherwise
      */
-    public boolean isBijective()
-    {
+    public boolean isBijective(){
         return isOneToOne() && isOnTo();
     }
 
@@ -123,10 +118,15 @@ public class FunctionsChapter3Style{
      *   
      *   The new function is the composition op( this.getRelation (this.domain) )
      */
-    public FunctionsChapter3Style composition(Set<OrderedPair> op, Set<String> opCoDomain)
-    {
-        FunctionsChapter3Style ans = new FunctionsChapter3Style(opCoDomain, opCoDomain, new HashSet<OrderedPair>() );
-
+    public FunctionsChapter3Style composition(Set<OrderedPair> op, Set<String> opCoDomain){
+        FunctionsChapter3Style ans = new FunctionsChapter3Style(d, opCoDomain, new HashSet<OrderedPair>());
+        HashSet<OrderedPair> rel = new HashSet<OrderedPair>();
+        HashMap<String,String> h = new HashMap<String,String>();
+        for(OrderedPair o:op)
+            h.put(o.getX(),o.getY());
+        for(OrderedPair o:this.op)
+            rel.add(new OrderedPair(o.getX(),h.get(o.getY())));
+        ans.setRelation(rel);
         return ans;
     }
 
@@ -135,8 +135,7 @@ public class FunctionsChapter3Style{
      *   rel does not have to be both 1-1 and onto
      *   the inverse does not need to be a function
      */
-    public OrderedPair[] getInverse()
-    {
+    public OrderedPair[] getInverse(){
         OrderedPair[] ans = new OrderedPair[op.size()];
         OrderedPair[] oparr = (OrderedPair[])((Set)op).toArray();
         for(int i=0;i<op.size();i++)
@@ -167,8 +166,7 @@ public class FunctionsChapter3Style{
      *       returns true if the current relation is symmetric
      *       returns false otherwise
      */
-    public boolean isSymmetric()
-    {
+    public boolean isSymmetric(){
         for(OrderedPair o:op)
             if(!op.contains(new OrderedPair(o.getY(),o.getX())))
                 return false;
@@ -182,8 +180,7 @@ public class FunctionsChapter3Style{
      *    returns true if the current relation is Antisymmetric
      *    returns false otherwise
      */
-    public boolean isAntiSymmetric()
-    {
+    public boolean isAntiSymmetric(){
         for(OrderedPair o:op)
             if(op.contains(new OrderedPair(o.getY(),o.getX())))
                 if(!o.getX().equals(o.getY()))
@@ -198,18 +195,22 @@ public class FunctionsChapter3Style{
      *       returns true if the current relation is reflexive
      *       returns false otherwise
      */
-    public boolean isTransitive()
-    {
-
-        return Math.random() < 0.5;
+    public boolean isTransitive(){
+        HashMap<String,String> m = new HashMap<String,String>();
+        for(OrderedPair o:op)
+            m.put(o.getX(),o.getY());
+        for(OrderedPair o:op)
+            if(m.keySet().contains(o.getY()))
+                if(!op.contains(new OrderedPair(o.getX(),m.get(o.getY()))))
+                    return false;
+        return true;
     }
 
     /*
      *    returns true is the relation is an Equivalence Relation
      *    returns false otherwise
      */
-    public boolean isEquivalenceRelation()
-    {
+    public boolean isEquivalenceRelation(){
         return isSymmetric() && isReflexive() && isTransitive();
     }
 
@@ -218,20 +219,7 @@ public class FunctionsChapter3Style{
      *    returns true is the relation is an Partially Order
      *    returns false otherwise
      */
-    public boolean isPartiallyOrder()
-    {
+    public boolean isPartiallyOrder(){
         return isAntiSymmetric() && isReflexive() && isTransitive();
-    }
-
-    /*
-     *      not tested.
-     *      Not sure why it is here.  I think I needed/used this functionality more than once,
-     *      and therefore created a helper method
-     */
-    public ArrayList<OrderedPair> getRel(String s)
-    {
-        ArrayList<OrderedPair> ans = new ArrayList<OrderedPair>();
-
-        return ans;
     }
 }

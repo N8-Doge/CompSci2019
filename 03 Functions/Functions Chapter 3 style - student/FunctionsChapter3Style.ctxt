@@ -29,9 +29,6 @@ comment17.text=\r\n\ \ \ \ returns\ true\ is\ the\ relation\ is\ an\ Equivalence
 comment18.params=
 comment18.target=boolean\ isPartiallyOrder()
 comment18.text=\r\n\ \r\n\ \ \ \ returns\ true\ is\ the\ relation\ is\ an\ Partially\ Order\r\n\ \ \ \ returns\ false\ otherwise\r\n
-comment19.params=s
-comment19.target=java.util.ArrayList\ getRel(java.lang.String)
-comment19.text=\r\n\ \ \ \ \ \ not\ tested.\r\n\ \ \ \ \ \ Not\ sure\ why\ it\ is\ here.\ \ I\ think\ I\ needed/used\ this\ functionality\ more\ than\ once,\r\n\ \ \ \ \ \ and\ therefore\ created\ a\ helper\ method\r\n
 comment2.params=d\ co\ r
 comment2.target=FunctionsChapter3Style(java.util.Set,\ java.util.Set,\ java.util.Set)
 comment3.params=
@@ -55,4 +52,4 @@ comment8.text=\ \r\n\ \ \ \ A\ function\ f\ from\ X\ to\ Y\ is\ said\ to\ be\ on
 comment9.params=
 comment9.target=boolean\ isOnTo()
 comment9.text=\r\n\ \ \ \ A\ function\ from\ X\ to\ Y\ is\ said\ to\ be\ onto\ if\r\n\ \ \ \ the\ range\ of\ f\ \=\=\ Y\r\n\r\n\ \ \ \ returns\ true\ if\ array\ of\ order\ Pairs\ is\ a\ function\ and\ the\ function\ is\ onto\r\n\ \ \ \ returns\ false\ otherwise\r\n
-numComments=20
+numComments=19
