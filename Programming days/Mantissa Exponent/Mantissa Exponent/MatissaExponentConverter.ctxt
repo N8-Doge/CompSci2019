@@ -1,6 +1,9 @@
 #BlueJ class context
-comment0.params=val\ m\ e
-comment0.target=java.lang.String\ toMatissaExponent(double,\ int,\ int)
-comment1.params=str
-comment1.target=double\ toDouble(java.lang.String)
-numComments=2
+comment0.target=MatissaExponentConverter
+comment1.params=val\ m\ e
+comment1.target=java.lang.String\ toMatissaExponent(double,\ int,\ int)
+comment2.params=str
+comment2.target=double\ toDouble(java.lang.String)
+comment3.params=s
+comment3.target=java.lang.String\ twosComplement(java.lang.String)
+numComments=4

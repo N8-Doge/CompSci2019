@@ -1,36 +1,42 @@
 import java.util.*;
 public class MatissaExponentConverter{
-    //.005 double accuracy
     public static String toMatissaExponent(double val, int m, int e){
-        int x = (val==0.)? 0 : Math.getExponent(val)+1;
-        String ex = Integer.toString(Math.abs(x),2);
-        while(ex.length()<e)
-            ex="0"+ex;
-        if(x<0.)
-            ex.replace('1','x').replace('0','1').replace('x','0');
-        if(ex.length()>e)
-            return "np";
-        System.out.println("exponent is "+ex);
-        String mn = "";
-        double d = 1;
-        double v = Math.abs(val);
-        while(d<val)
+        double d = Math.abs(val);
+        int x=0;
+        while(d!=(double)(int)d){
             d*=2;
-        for(int i=0;i<m;++i){
-            if(d<=v){
-                mn+="1";
-                v-=d;
-            }
-            else
-                mn+="0";
-            d/=2;
+            x--;
         }
-        System.out.println("v is "+v);
-
-        //code negative nums IDIOT
-        if(v>.05)
+        String man = Integer.toString((int)d,2);
+        x+=(man.equals("0")) ? 0 : man.length();
+        while(man.length()<m-1)
+            man+="0";
+        if(val<0){
+            man=twosComplement(man);
+            man="1"+man;
+        }
+        else
+            man="0"+man;
+        String ex = Integer.toString(Math.abs(x),2);
+        do{
+            ex="0"+ex;
+        }while(ex.length()<e);
+        if(x<0){
+            ex=twosComplement(ex);
+            if(ex.indexOf("11")==0){
+                boolean b = true;
+                for(int i=0;i<ex.length()-1;i++)
+                    if(i>1 && ex.charAt(i)!='0')
+                        b=false;
+                if(b)
+                    ex=ex.substring(1);
+            }
+        }
+        while(man.length()>m && man.charAt(man.length()-1)=='0')
+            man=man.substring(0,man.length()-1);
+        if(man.length()>m || ex.length()>e)
             return "np";
-        return mn+" "+ex;
+        return man+" "+ex;
     }
 
     public static double toDouble(String str){
@@ -52,5 +58,18 @@ public class MatissaExponentConverter{
                 else
                     m+=Math.pow(2,i);
         return Math.pow(2,m)*d;
+    }
+
+    public static String twosComplement(String s){
+        s=s.replace('0','x').replace('1','0').replace('x','1');
+        StringBuilder b = new StringBuilder(s);
+        int i = b.length()-1;
+        while(b.charAt(i)=='1' && i>0){
+            b.setCharAt(i,'0');
+            i--;
+        }
+        if(b.charAt(i)=='0')
+            b.setCharAt(i,'1');
+        return b.toString();
     }
 }

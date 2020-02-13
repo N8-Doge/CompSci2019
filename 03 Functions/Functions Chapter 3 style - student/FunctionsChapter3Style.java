@@ -7,6 +7,7 @@ public class FunctionsChapter3Style{
     public FunctionsChapter3Style(Set<String> d, Set<String> co){
         this.d=d;
         this.co=co;
+        HashSet h = new HashSet<String>();
     }
 
     public FunctionsChapter3Style(Set<String> d, Set<String> co, Set<OrderedPair> r)
@@ -56,9 +57,12 @@ public class FunctionsChapter3Style{
      *    returns false otherwise
      */
     public boolean isFunction(){
-        HashMap h = new HashMap<String,String>();
+        HashSet h = new HashSet<String>();
         for(OrderedPair o:op)
-            if(h.put(o.getX(),o.getY())!=null)
+            if(!h.add(o.getX()))
+                return false;
+        for(String s:d)
+            if(!h.contains(s))
                 return false;
         return true;
     }
@@ -137,9 +141,11 @@ public class FunctionsChapter3Style{
      */
     public OrderedPair[] getInverse(){
         OrderedPair[] ans = new OrderedPair[op.size()];
-        OrderedPair[] oparr = (OrderedPair[])((Set)op).toArray();
-        for(int i=0;i<op.size();i++)
-            ans[i]=new OrderedPair(oparr[i].getY(),oparr[i].getX());
+        int i=0;
+        for(OrderedPair o:op){
+            ans[i]=new OrderedPair(o.getY(),o.getX());
+            i++;
+        }
         return ans;
     }
 
@@ -150,10 +156,7 @@ public class FunctionsChapter3Style{
      *       returns false otherwise
      */
     public boolean isReflexive(){
-        HashSet h = new HashSet<String>();
-        for(OrderedPair o:op)
-            h.add(o.getX());
-        for(String s:(HashSet<String>)h)
+        for(String s:d)
             if(!op.contains(new OrderedPair(s,s)))
                 return false;
         return true;
@@ -196,13 +199,11 @@ public class FunctionsChapter3Style{
      *       returns false otherwise
      */
     public boolean isTransitive(){
-        HashMap<String,String> m = new HashMap<String,String>();
-        for(OrderedPair o:op)
-            m.put(o.getX(),o.getY());
-        for(OrderedPair o:op)
-            if(m.keySet().contains(o.getY()))
-                if(!op.contains(new OrderedPair(o.getX(),m.get(o.getY()))))
-                    return false;
+        for(OrderedPair o1:op)
+            for(OrderedPair o2:op)
+                if(o1.getY().equals(o2.getX()))
+                    if(!op.contains(new OrderedPair(o1.getX(),o2.getY())))
+                        return false;
         return true;
     }
 
