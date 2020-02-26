@@ -1,25 +1,11 @@
-
-/**
- * Write a description of class Matrix here.
- * 
- * need Matrix operations
- * 
- * @author Don Allen
- * @version March 2011
- */
-public class Matrix
-{
-    // All methods will be static methods
-
-    /**
-     *    Matrix multiplication
-     * 
-     * @return     matrix x times matrix y 
-     */
-    public static int[][] product(int[][] x, int[][] y)
-    {
-        int[][] ans = new int[x.length][y[0].length];   // this is the correct dimension
-        
+public class Matrix{
+    public static int[][] product(int[][] x, int[][] y){
+        int[][] ans = new int[x.length][y[0].length];
+        for(int i=0;i<ans.length;i++)
+            for(int j=0;j<ans.length;j++){
+                for(int n=0;n<x[0].length;n++)
+                    ans[i][j]+=(x[i][n]*y[n][j]);
+            }
         return ans;
     }
 }
