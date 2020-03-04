@@ -1,19 +1,20 @@
 #BlueJ class context
 comment0.target=MysterySolver4AB
-comment0.text=\ \ \ \ for\ all\ methods\ -\ you\ get\ \r\nStringTokenizer\ strTok\ \=\ new\ StringTokenizer(input);\r\nStack<?????>\ s\ \=\ new\ Stack<??????>();\r\nQueue<?????>\ q\ \=\ new\ LinkedList<?????>();\r\nplus\ one\ other\ Object\r\n\r\nplus\ a\ String\ only\ to\ return\ the\ result\r\n
-comment1.params=input
+comment1.params=exprsn
 comment1.target=java.lang.String\ mysteryPreFix(java.lang.String)
-comment1.text=\r\n\ \ \ required\ operators\ for\ PreFix\ and\ Post\ are\:\r\n\ \ \ \ \ *,\ /,\ +,\ -,\ %\ and\ ^\ (exponent)\r\n\ \ \ \ \ \r\n\ \ \ \ \ You\ may\ assume\ all\ inputs\ are\ integers,\r\n\ \ \ \ \ all\ calculations\ should\ done\ using\ integer\ Math\ \ (5\ /\ 2\ \=\=\ 2)\r\n
-comment2.params=input
-comment2.target=java.lang.String\ mysteryPostFix(java.lang.String)
+comment2.params=c
+comment2.target=java.lang.Boolean\ isOperand(char)
 comment3.params=input
-comment3.target=java.lang.String\ mysteryP(java.lang.String)
+comment3.target=java.lang.String\ mysteryPostFix(java.lang.String)
 comment4.params=input
-comment4.target=java.lang.String\ mysteryS(java.lang.String)
+comment4.target=java.lang.String\ mysteryP(java.lang.String)
 comment5.params=input
-comment5.target=java.lang.String\ mystery10(java.lang.String)
-comment5.text=\r\n\ \ \ \ See\ tester\ for\ sample\ input\ -\ output\r\n\ \ \ \ \r\n\ \ \ \ You\ may\ assume\ the\ first\ int\ <\ second\ int.\r\n\ \ \ \ \r\n\ \ \ \ You\ may\ assume\ all\ three\ ints\ will\ be\ greater\ than\ 0\r\n
+comment5.target=java.lang.String\ mysteryS(java.lang.String)
 comment6.params=input
-comment6.target=java.lang.String\ mysteryC(java.lang.String)
-comment6.text=\r\n\ \ \ \ Precondition\:\ \ The\ tester\ will\ never\ have\ more\ than\ 3\ consecutive\ numbers\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ That\ is,\ the\ same\ number\ will\ never\ appear\ more\ than\ 3\ times\ in\ a\ row\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ restating\ the\ precondition\r\n\r\n\ \ \ \ you\ may\ assume\ no\ input\ will\ have\ more\ than\ 3\ consecutive\ digits\r\n\ \ \ \ that\ is\:\ \ 3333,\ 211116,\ 10000000,\ 33334444\ are\ all\ invalid\ values\ for\ the\ first\ part\ of\ the\ input\r\n\ \ \ \ but\:\ \ \ \ \ \ \ 123456,\ 300044412,\ ...\ are\ valid\ values\ for\ the\ first\ part\ of\ input\r\n\ \ \ \ \r\n
-numComments=7
+comment6.target=java.lang.String\ mystery10(java.lang.String)
+comment6.text=\r\n\ \ \ \ See\ tester\ for\ sample\ input\ -\ output\r\n\ \ \ \ \r\n\ \ \ \ You\ may\ assume\ the\ first\ int\ <\ second\ int.\r\n\ \ \ \ \r\n\ \ \ \ You\ may\ assume\ all\ three\ ints\ will\ be\ greater\ than\ 0\r\n
+comment7.params=number
+comment7.target=java.lang.String\ mysteryC(java.lang.String)
+comment8.params=number
+comment8.target=java.lang.String\ lockAndSaySequence(java.lang.String)
+numComments=9
